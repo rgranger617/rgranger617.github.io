@@ -1,0 +1,7 @@
+---
+title: "Research"
+---
+
+Switching State Space Models for Interpreting Musical Dynamics
+
+-   (files/Dynamics-Model-11.23.2020)

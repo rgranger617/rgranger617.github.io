@@ -1,9 +1,66 @@
 ---
-title: "About"
+title: "Robert Granger"
+about:
+  template: trestles
+  image: files/RobTheoswimming.jpg
+  links:
+    - icon: mailbox
+      text: Email
+      href: mailto:rgranger@iu.edu
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/rgranger617
+    - icon: twitter
+      text: twitter
+      href: https://twitter.com/rgranger617
+    - icon: github
+      text: Github
+      href: https://github.com/rgranger617
 ---
 
-About this site
+Robert (Rob) is a PhD student in the Department of Statistics at Indiana University. He has worked on several research projects in application areas like social media, health safety, music, and human rights involving statistical techniques such as generalized/mixed effect regression, state space modeling, capture-recapture, and Bayesian approaches.
 
-```{r}
-1 + 1
-```
+In 2012, Rob earned his Bachelor's degree from Indiana University with majors in Economics, Mathematics, and Political Science and a minor in Religious Studies. Two years later, he earned his Master's Degree in Economics and began tutoring college students professionally in the subjects of economics and statistics. In 2017, he joined the Master of Statistical Science Program (MSSS) at Indiana University and then in 2019 was accepted into the Statistics PhD program. Currently, he has completed all qualification exams and course requirements. He was recently hired on at Indiana University as a Visiting Lecturer where he teaches up to three sections (\~100 students per class) of Business Statistics per semester. He is in the process of drafting a thesis proposal and selecting a thesis committee. He expects to earn his PhD degree in the Spring of 2024.
+
+In his spare time, Rob enjoys spending time with his wife, Mary, and his fifteen month old son, Theodore.
+
+## Education
+
+Indiana University \| Bloomington, IN\
+PhD in Statistical Science \| Aug 2019 - Present
+
+Indiana University \| Bloomington, IN\
+Masters in Statistical Science \| Aug 2017 - May 2019
+
+Indiana University \| Bloomington, IN\
+Masters of Arts in Economics \| Aug 2012 - May 2013
+
+Indiana University \| Bloomington, IN\
+Bachelor of Arts \| Aug 2007 - May 2012\
+Majors: Political Science, Economics, Mathematics\
+Minor: Religious Studies
+
+## Experience
+
+Visiting Lecturer \| Indiana University\
+Bloomington, IN \| August 2022 - present
+
+Associate Instructor \| Indiana University\
+Bloomington, IN \| August 2017 - July 2021
+
+Intern \| Indiana Statistical Consulting Center (ISCC)\
+Bloomington, IN \| Spring 2019
+
+Adjunct Faculty in Economics \| Ivy Tech Community College\
+Indianapolis, IN \| Fall 2016 - Summer 2017
+
+Tutor \| Campus Tutoring Service\
+Bloomington, IN \| August 2013 - May 2017
+
+## Technical Skills and Certifications
+
+Data Science Certificate \| Johns Hopkins University\
+Fall 2015 - Spring 2016
+
+Programming Languages and Software\
+R, Python, C/C++, Stata, Latex, Excel

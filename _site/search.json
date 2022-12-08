@@ -1,5 +1,40 @@
 [
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Robert Granger",
+    "section": "",
+    "text": "Robert (Rob) is a PhD student in the Department of Statistics at Indiana University. He has worked on several research projects in application areas like social media, health safety, music, and human rights involving statistical techniques such as generalized/mixed effect regression, state space modeling, capture-recapture, and Bayesian approaches.\nIn 2012, Rob earned his Bachelor’s degree from Indiana University with majors in Economics, Mathematics, and Political Science and a minor in Religious Studies. Two years later, he earned his Master’s Degree in Economics and began tutoring college students professionally in the subjects of economics and statistics. In 2017, he joined the Master of Statistical Science Program (MSSS) at Indiana University and then in 2019 was accepted into the Statistics PhD program. Currently, he has completed all qualification exams and course requirements. He was recently hired on at Indiana University as a Visiting Lecturer where he teaches up to three sections (~100 students per class) of Business Statistics per semester. He is in the process of drafting a thesis proposal and selecting a thesis committee. He expects to earn his PhD degree in the Spring of 2024.\nIn his spare time, Rob enjoys spending time with his wife, Mary, and his fifteen month old son, Theodore."
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "Robert Granger",
+    "section": "Education",
+    "text": "Education\nIndiana University | Bloomington, IN\nPhD in Statistical Science | Aug 2019 - Present\nIndiana University | Bloomington, IN\nMasters in Statistical Science | Aug 2017 - May 2019\nIndiana University | Bloomington, IN\nMasters of Arts in Economics | Aug 2012 - May 2013\nIndiana University | Bloomington, IN\nBachelor of Arts | Aug 2007 - May 2012\nMajors: Political Science, Economics, Mathematics\nMinor: Religious Studies"
+  },
+  {
+    "objectID": "about.html#experience",
+    "href": "about.html#experience",
+    "title": "Robert Granger",
+    "section": "Experience",
+    "text": "Experience\nVisiting Lecturer | Indiana University\nBloomington, IN | August 2022 - present\nAssociate Instructor | Indiana University\nBloomington, IN | August 2017 - July 2021\nIntern | Indiana Statistical Consulting Center (ISCC)\nBloomington, IN | Spring 2019\nAdjunct Faculty in Economics | Ivy Tech Community College\nIndianapolis, IN | Fall 2016 - Summer 2017\nTutor | Campus Tutoring Service\nBloomington, IN | August 2013 - May 2017"
+  },
+  {
+    "objectID": "about.html#technical-skills-and-certifications",
+    "href": "about.html#technical-skills-and-certifications",
+    "title": "Robert Granger",
+    "section": "Technical Skills and Certifications",
+    "text": "Technical Skills and Certifications\nData Science Certificate | Johns Hopkins University\nFall 2015 - Spring 2016\nProgramming Languages and Software\nR, Python, C/C++, Stata, Latex, Excel"
+  },
+  {
+    "objectID": "apps.html",
+    "href": "apps.html",
+    "title": "Apps",
+    "section": "",
+    "text": "1 + 1\n\n[1] 2"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Robert Granger",
@@ -7,9 +42,16 @@
     "text": "To learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "Research",
+    "section": "",
+    "text": "files/Dynamics-Model-11.23.2020.pdf"
+  },
+  {
+    "objectID": "teaching.html",
+    "href": "teaching.html",
+    "title": "Teaching",
     "section": "",
     "text": "1 + 1\n\n[1] 2"
   }
