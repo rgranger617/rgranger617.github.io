@@ -6,4 +6,6 @@ categories: ["Hypothesis Testing"]
 format: html
 ---
 
-<iframe id="example1" src="https://rgranger617.shinyapps.io/statsapp/" style="border: none; width: 110%; height: 1020px" frameborder="0"></iframe>
+<iframe id="example1" src="https://rgranger617.shinyapps.io/statsapp/" style="border: none; width: 120%; height: 1020px" frameborder="0">
+
+</iframe>
