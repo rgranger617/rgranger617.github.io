@@ -1,0 +1,18 @@
+---
+title: "Teaching"
+listing: 
+  - id: courses
+    contents: "courses/*/*.qmd"
+    sort: "date desc"
+    type: default
+    table-hover: true
+    categories: numbered
+    field-display-names: 
+      title: "Class"
+    page-size: 5
+---
+
+Listed below are links to course pages for every class that I've taught. Each page contains the official course description along with the course syllabus. If you'd like additional information or course materials, feel free to contact me.
+
+::: {#courses}
+:::

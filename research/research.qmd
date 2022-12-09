@@ -1,0 +1,21 @@
+---
+title: "Research"
+---
+
+Capture-Recapture (Multiple Systems Estimation)
+
+-   Exploring the capture-recapture problem with observed and unobserved heterogeneity.
+
+-   Bayesian, MCMC, data imputation
+
+-   This research is taking place under the guidance of [Professor Daniel Manrique-Vallier](https://dmanriqu.pages.iu.edu/).
+
+-   Expected Proposal Date: **March 2023**!
+
+Switching State Space Models for Interpreting Musical Dynamics
+
+-   [Switching State Space Models for Interpreting Musical Dynamics - draft](Dynamics-Model-11.23.2020.pdf)
+
+-   Work in progress used for my data analysis qualifying exam (2020).
+
+-   This research took place under the guidance of [Professor Daniel McDonald](https://dajmcdon.github.io/).

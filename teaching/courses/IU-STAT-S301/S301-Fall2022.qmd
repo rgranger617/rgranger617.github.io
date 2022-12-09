@@ -1,0 +1,15 @@
+---
+title: "Introduction to Business Statistics: STAT-S301"
+subtitle: "Indiana University - Fall 2022"
+image: trident-iu.jpg
+date: August 2022
+categories: ["STAT-S301", "Indiana University"]
+---
+
+## IU Course Description
+
+STAT-S 301 Applied Statistical Methods for Business (3 cr.) CASE N&M P: MATH-M 118 or equivalent. Introduction to methods for analyzing data arising in business, designed to prepare business students for the Kelley School's Integrative Core. Graphical and numerical descriptions of data, probability models, fundamental principles of estimation and hypothesis testing, applications to linear regression and quality control. Microsoft Excel used to perform analyses.
+
+## Syllabus
+
+[Syllabus Link](syllabus-stats301-fall2022.pdf)

@@ -1,0 +1,15 @@
+---
+title: "Statistics for Journalists: STAT-S211"
+subtitle: "Indiana University - Fall 2020"
+image: trident-iu.jpg
+date: August 2020
+categories: ["STAT-S211", "Indiana University"]
+---
+
+## IU Course Description
+
+STAT-S 211 Statistics for Journalists (3 cr.) CASE N&M P: MATH-M 014 or equivalent. Essential statistical concepts and tools for journalists in the age of data, including probability, graphics, descriptive statistics, prediction, study design, comparison, testing, and estimation. The course has a heavier emphasis on writing and reading media reports than other introductory statistics courses.
+
+## Syllabus
+
+[Syllabus Link](syllabus-S211-fall2020.pdf)

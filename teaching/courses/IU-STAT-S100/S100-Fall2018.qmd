@@ -1,0 +1,15 @@
+---
+title: "Statistical Literacy: STAT-S100"
+subtitle: "Indiana University - Fall 2018"
+image: trident-iu.jpg
+date: August 2018
+categories: ["STAT-S100", "Indiana University"]
+---
+
+## IU Course Description
+
+STAT-S 100 Statistical Literacy (3 cr.) **CASE N&M** P: MATH-M 014 or equivalent. How to be an informed consumer of statistical analysis. Experiments and observational studies, summarizing and displaying data, relationships between variables, quantifying uncertainty, drawing statistical inferences.
+
+## Syllabus
+
+[Syllabus Link](SyllabusS100GrangerFA2018.pdf)

@@ -1,0 +1,15 @@
+---
+title: "Introduction to Macroeconomics: ECON-E201"
+subtitle: "Ivy Tech Community College - Fall 2017"
+image: Ivy_Tech_Community_College.png
+date: August 2017
+categories: ["ECON-E201", "Ivy Tech"]
+---
+
+## Ivy Tech Course Description
+
+A descriptive and analytical study of fundamental concepts of national economics. It includes an analysis of the determination and fluctuations in national income and employment, monetary and fiscal policy, and international trade and finance. Economic analysis of monetary and fiscal policies is stressed.
+
+## Syllabus
+
+[Syllabus Link](Econ201MacroeconomicsSyllabus-Fall2017.pdf)

@@ -2,7 +2,7 @@
 title: "Robert Granger"
 about:
   template: trestles
-  image: files/RobTheoswimming.jpg
+  image: RobTheoswimming.jpg
   links:
     - icon: mailbox
       text: Email
@@ -22,7 +22,7 @@ Robert (Rob) is a PhD student in the Department of Statistics at Indiana Univers
 
 In 2012, Rob earned his Bachelor's degree from Indiana University with majors in Economics, Mathematics, and Political Science and a minor in Religious Studies. Two years later, he earned his Master's Degree in Economics and began tutoring college students professionally in the subjects of economics and statistics. In 2017, he joined the Master of Statistical Science Program (MSSS) at Indiana University and then in 2019 was accepted into the Statistics PhD program. Currently, he has completed all qualification exams and course requirements. He was recently hired on at Indiana University as a Visiting Lecturer where he teaches up to three sections (\~100 students per class) of Business Statistics per semester. He is in the process of drafting a thesis proposal and selecting a thesis committee. He expects to earn his PhD degree in the Spring of 2024.
 
-In his spare time, Rob enjoys spending time with his wife, Mary, and his fifteen month old son, Theodore.
+In his spare time, Rob enjoys spending time with his wife, Mary, and his 21 month old son, Theodore.
 
 ## Education
 

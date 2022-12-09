@@ -1,0 +1,15 @@
+---
+title: "Introduction to Microeconomics: ECON-E202"
+subtitle: "Ivy Tech Community College - Spring 2017"
+image: Ivy_Tech_Community_College.png
+date: January 2017
+categories: ["ECON-E202", "Ivy Tech"]
+---
+
+## Ivy Tech Course Description
+
+A descriptive and analytical study of the market economy and how it allocates resources. Emphasis is placed on consumer behavior, market structure, pricing, and distribution and determination of wealth and income.
+
+## Syllabus
+
+[Syllabus Link](Econ202MicroeconomicsSyllabus-Spring2017.pdf)
