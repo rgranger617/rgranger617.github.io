@@ -1,0 +1,254 @@
+[
+  {
+    "objectID": "about/about.html",
+    "href": "about/about.html",
+    "title": "Robert Granger",
+    "section": "",
+    "text": "Robert (Rob) is a PhD student in the Department of Statistics at Indiana University. He has worked on several research projects in application areas like social media, health safety, music, and human rights involving statistical techniques such as generalized/mixed effect regression, state space modeling, capture-recapture, and Bayesian approaches.\nIn 2012, Rob earned his Bachelor’s degree from Indiana University with majors in Economics, Mathematics, and Political Science and a minor in Religious Studies. Two years later, he earned his Master’s Degree in Economics and began tutoring college students professionally in the subjects of economics and statistics. In 2017, he joined the Master of Statistical Science Program (MSSS) at Indiana University and then in 2019 was accepted into the Statistics PhD program. Currently, he has completed all qualification exams and course requirements. He was recently hired on at Indiana University as a Visiting Lecturer where he teaches up to three sections (~100 students per class) of Business Statistics per semester. He is in the process of drafting a thesis proposal and selecting a thesis committee. He expects to earn his PhD degree in the Spring of 2024.\nIn his spare time, Rob enjoys spending time with his wife, Mary, and his 21 month old son, Theodore."
+  },
+  {
+    "objectID": "about/about.html#education",
+    "href": "about/about.html#education",
+    "title": "Robert Granger",
+    "section": "Education",
+    "text": "Education\nIndiana University | Bloomington, IN\nPhD in Statistical Science | Aug 2019 - Present\nIndiana University | Bloomington, IN\nMasters in Statistical Science | Aug 2017 - May 2019\nIndiana University | Bloomington, IN\nMasters of Arts in Economics | Aug 2012 - May 2013\nIndiana University | Bloomington, IN\nBachelor of Arts | Aug 2007 - May 2012\nMajors: Political Science, Economics, Mathematics\nMinor: Religious Studies"
+  },
+  {
+    "objectID": "about/about.html#experience",
+    "href": "about/about.html#experience",
+    "title": "Robert Granger",
+    "section": "Experience",
+    "text": "Experience\nVisiting Lecturer | Indiana University\nBloomington, IN | August 2022 - present\nAssociate Instructor | Indiana University\nBloomington, IN | August 2017 - July 2021\nIntern | Indiana Statistical Consulting Center (ISCC)\nBloomington, IN | Spring 2019\nAdjunct Faculty in Economics | Ivy Tech Community College\nIndianapolis, IN | Fall 2016 - Summer 2017\nTutor | Campus Tutoring Service\nBloomington, IN | August 2013 - May 2017"
+  },
+  {
+    "objectID": "about/about.html#technical-skills-and-certifications",
+    "href": "about/about.html#technical-skills-and-certifications",
+    "title": "Robert Granger",
+    "section": "Technical Skills and Certifications",
+    "text": "Technical Skills and Certifications\nData Science Certificate | Johns Hopkins University\nFall 2015 - Spring 2016\nProgramming Languages and Software\nR, Python, C/C++, Stata, Latex, Excel"
+  },
+  {
+    "objectID": "apps/apps.html",
+    "href": "apps/apps.html",
+    "title": "Apps",
+    "section": "",
+    "text": "1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Robert Granger",
+    "section": "",
+    "text": "To learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "research/research.html",
+    "href": "research/research.html",
+    "title": "Research",
+    "section": "",
+    "text": "Exploring the capture-recapture problem with observed and unobserved heterogeneity.\nBayesian, MCMC, data imputation\nThis research is taking place under the guidance of Professor Daniel Manrique-Vallier.\nExpected Proposal Date: March 2023!\n\nSwitching State Space Models for Interpreting Musical Dynamics\n\nSwitching State Space Models for Interpreting Musical Dynamics - draft\nWork in progress used for my data analysis qualifying exam (2020).\nThis research took place under the guidance of Professor Daniel McDonald."
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S100/S100-Fall2018.html",
+    "href": "teaching/courses/IU-STAT-S100/S100-Fall2018.html",
+    "title": "Statistical Literacy: STAT-S100",
+    "section": "",
+    "text": "STAT-S 100 Statistical Literacy (3 cr.) CASE N&M P: MATH-M 014 or equivalent. How to be an informed consumer of statistical analysis. Experiments and observational studies, summarizing and displaying data, relationships between variables, quantifying uncertainty, drawing statistical inferences."
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S100/S100-Fall2018.html#syllabus",
+    "href": "teaching/courses/IU-STAT-S100/S100-Fall2018.html#syllabus",
+    "title": "Statistical Literacy: STAT-S100",
+    "section": "Syllabus",
+    "text": "Syllabus\nSyllabus Link"
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S100/S100-Fall2019.html",
+    "href": "teaching/courses/IU-STAT-S100/S100-Fall2019.html",
+    "title": "Statistical Literacy: STAT-S100",
+    "section": "",
+    "text": "STAT-S 100 Statistical Literacy (3 cr.) CASE N&M P: MATH-M 014 or equivalent. How to be an informed consumer of statistical analysis. Experiments and observational studies, summarizing and displaying data, relationships between variables, quantifying uncertainty, drawing statistical inferences."
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S100/S100-Fall2019.html#syllabus",
+    "href": "teaching/courses/IU-STAT-S100/S100-Fall2019.html#syllabus",
+    "title": "Statistical Literacy: STAT-S100",
+    "section": "Syllabus",
+    "text": "Syllabus\nSyllabus Link"
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S211/S211-Fall2020.html",
+    "href": "teaching/courses/IU-STAT-S211/S211-Fall2020.html",
+    "title": "Statistics for Journalists: STAT-S211",
+    "section": "",
+    "text": "STAT-S 211 Statistics for Journalists (3 cr.) CASE N&M P: MATH-M 014 or equivalent. Essential statistical concepts and tools for journalists in the age of data, including probability, graphics, descriptive statistics, prediction, study design, comparison, testing, and estimation. The course has a heavier emphasis on writing and reading media reports than other introductory statistics courses."
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S211/S211-Fall2020.html#syllabus",
+    "href": "teaching/courses/IU-STAT-S211/S211-Fall2020.html#syllabus",
+    "title": "Statistics for Journalists: STAT-S211",
+    "section": "Syllabus",
+    "text": "Syllabus\nSyllabus Link"
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S211/S211-Fall2021.html",
+    "href": "teaching/courses/IU-STAT-S211/S211-Fall2021.html",
+    "title": "Statistics for Journalists: STAT-S211",
+    "section": "",
+    "text": "STAT-S 211 Statistics for Journalists (3 cr.) CASE N&M P: MATH-M 014 or equivalent. Essential statistical concepts and tools for journalists in the age of data, including probability, graphics, descriptive statistics, prediction, study design, comparison, testing, and estimation. The course has a heavier emphasis on writing and reading media reports than other introductory statistics courses."
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S211/S211-Fall2021.html#syllabus",
+    "href": "teaching/courses/IU-STAT-S211/S211-Fall2021.html#syllabus",
+    "title": "Statistics for Journalists: STAT-S211",
+    "section": "Syllabus",
+    "text": "Syllabus\nSyllabus Link"
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S211/S211-Spring2021.html",
+    "href": "teaching/courses/IU-STAT-S211/S211-Spring2021.html",
+    "title": "Statistics for Journalists: STAT-S211",
+    "section": "",
+    "text": "STAT-S 211 Statistics for Journalists (3 cr.) CASE N&M P: MATH-M 014 or equivalent. Essential statistical concepts and tools for journalists in the age of data, including probability, graphics, descriptive statistics, prediction, study design, comparison, testing, and estimation. The course has a heavier emphasis on writing and reading media reports than other introductory statistics courses."
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S211/S211-Spring2021.html#syllabus",
+    "href": "teaching/courses/IU-STAT-S211/S211-Spring2021.html#syllabus",
+    "title": "Statistics for Journalists: STAT-S211",
+    "section": "Syllabus",
+    "text": "Syllabus\nSyllabus Link"
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S211/S211-Spring2022.html",
+    "href": "teaching/courses/IU-STAT-S211/S211-Spring2022.html",
+    "title": "Statistics for Journalists: STAT-S211",
+    "section": "",
+    "text": "STAT-S 211 Statistics for Journalists (3 cr.) CASE N&M P: MATH-M 014 or equivalent. Essential statistical concepts and tools for journalists in the age of data, including probability, graphics, descriptive statistics, prediction, study design, comparison, testing, and estimation. The course has a heavier emphasis on writing and reading media reports than other introductory statistics courses."
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S211/S211-Spring2022.html#syllabus",
+    "href": "teaching/courses/IU-STAT-S211/S211-Spring2022.html#syllabus",
+    "title": "Statistics for Journalists: STAT-S211",
+    "section": "Syllabus",
+    "text": "Syllabus\nSyllabus Link"
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S301/S301-Fall2022.html",
+    "href": "teaching/courses/IU-STAT-S301/S301-Fall2022.html",
+    "title": "Introduction to Business Statistics: STAT-S301",
+    "section": "",
+    "text": "STAT-S 301 Applied Statistical Methods for Business (3 cr.) CASE N&M P: MATH-M 118 or equivalent. Introduction to methods for analyzing data arising in business, designed to prepare business students for the Kelley School’s Integrative Core. Graphical and numerical descriptions of data, probability models, fundamental principles of estimation and hypothesis testing, applications to linear regression and quality control. Microsoft Excel used to perform analyses."
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S301/S301-Fall2022.html#syllabus",
+    "href": "teaching/courses/IU-STAT-S301/S301-Fall2022.html#syllabus",
+    "title": "Introduction to Business Statistics: STAT-S301",
+    "section": "Syllabus",
+    "text": "Syllabus\nSyllabus Link"
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S301/S301-Spring2018.html",
+    "href": "teaching/courses/IU-STAT-S301/S301-Spring2018.html",
+    "title": "Introduction to Business Statistics: STAT-S301",
+    "section": "",
+    "text": "STAT-S 301 Applied Statistical Methods for Business (3 cr.) CASE N&M P: MATH-M 118 or equivalent. Introduction to methods for analyzing data arising in business, designed to prepare business students for the Kelley School’s Integrative Core. Graphical and numerical descriptions of data, probability models, fundamental principles of estimation and hypothesis testing, applications to linear regression and quality control. Microsoft Excel used to perform analyses."
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S301/S301-Spring2018.html#syllabus",
+    "href": "teaching/courses/IU-STAT-S301/S301-Spring2018.html#syllabus",
+    "title": "Introduction to Business Statistics: STAT-S301",
+    "section": "Syllabus",
+    "text": "Syllabus\nSyllabus Link"
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S301/S301-Spring2019.html",
+    "href": "teaching/courses/IU-STAT-S301/S301-Spring2019.html",
+    "title": "Introduction to Business Statistics: STAT-S301",
+    "section": "",
+    "text": "STAT-S 301 Applied Statistical Methods for Business (3 cr.) CASE N&M P: MATH-M 118 or equivalent. Introduction to methods for analyzing data arising in business, designed to prepare business students for the Kelley School’s Integrative Core. Graphical and numerical descriptions of data, probability models, fundamental principles of estimation and hypothesis testing, applications to linear regression and quality control. Microsoft Excel used to perform analyses."
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S301/S301-Spring2019.html#syllabus",
+    "href": "teaching/courses/IU-STAT-S301/S301-Spring2019.html#syllabus",
+    "title": "Introduction to Business Statistics: STAT-S301",
+    "section": "Syllabus",
+    "text": "Syllabus\nSyllabus Link"
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S301/S301-Spring2020.html",
+    "href": "teaching/courses/IU-STAT-S301/S301-Spring2020.html",
+    "title": "Introduction to Business Statistics: STAT-S301",
+    "section": "",
+    "text": "STAT-S 301 Applied Statistical Methods for Business (3 cr.) CASE N&M P: MATH-M 118 or equivalent. Introduction to methods for analyzing data arising in business, designed to prepare business students for the Kelley School’s Integrative Core. Graphical and numerical descriptions of data, probability models, fundamental principles of estimation and hypothesis testing, applications to linear regression and quality control. Microsoft Excel used to perform analyses."
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S301/S301-Spring2020.html#syllabus",
+    "href": "teaching/courses/IU-STAT-S301/S301-Spring2020.html#syllabus",
+    "title": "Introduction to Business Statistics: STAT-S301",
+    "section": "Syllabus",
+    "text": "Syllabus\nSyllabus Link"
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S301/S301-Summer2022.html",
+    "href": "teaching/courses/IU-STAT-S301/S301-Summer2022.html",
+    "title": "Introduction to Business Statistics: STAT-S301",
+    "section": "",
+    "text": "STAT-S 301 Applied Statistical Methods for Business (3 cr.) CASE N&M P: MATH-M 118 or equivalent. Introduction to methods for analyzing data arising in business, designed to prepare business students for the Kelley School’s Integrative Core. Graphical and numerical descriptions of data, probability models, fundamental principles of estimation and hypothesis testing, applications to linear regression and quality control. Microsoft Excel used to perform analyses."
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S301/S301-Summer2022.html#syllabus",
+    "href": "teaching/courses/IU-STAT-S301/S301-Summer2022.html#syllabus",
+    "title": "Introduction to Business Statistics: STAT-S301",
+    "section": "Syllabus",
+    "text": "Syllabus\nSyllabus Link"
+  },
+  {
+    "objectID": "teaching/courses/Ivy-ECON-E201/E201-Fall2017.html",
+    "href": "teaching/courses/Ivy-ECON-E201/E201-Fall2017.html",
+    "title": "Introduction to Macroeconomics: ECON-E201",
+    "section": "",
+    "text": "A descriptive and analytical study of fundamental concepts of national economics. It includes an analysis of the determination and fluctuations in national income and employment, monetary and fiscal policy, and international trade and finance. Economic analysis of monetary and fiscal policies is stressed."
+  },
+  {
+    "objectID": "teaching/courses/Ivy-ECON-E201/E201-Fall2017.html#syllabus",
+    "href": "teaching/courses/Ivy-ECON-E201/E201-Fall2017.html#syllabus",
+    "title": "Introduction to Macroeconomics: ECON-E201",
+    "section": "Syllabus",
+    "text": "Syllabus\nSyllabus Link"
+  },
+  {
+    "objectID": "teaching/courses/Ivy-ECON-E201/E201-Summer2017.html",
+    "href": "teaching/courses/Ivy-ECON-E201/E201-Summer2017.html",
+    "title": "Introduction to Macroeconomics: ECON-E201",
+    "section": "",
+    "text": "A descriptive and analytical study of fundamental concepts of national economics. It includes an analysis of the determination and fluctuations in national income and employment, monetary and fiscal policy, and international trade and finance. Economic analysis of monetary and fiscal policies is stressed."
+  },
+  {
+    "objectID": "teaching/courses/Ivy-ECON-E201/E201-Summer2017.html#syllabus",
+    "href": "teaching/courses/Ivy-ECON-E201/E201-Summer2017.html#syllabus",
+    "title": "Introduction to Macroeconomics: ECON-E201",
+    "section": "Syllabus",
+    "text": "Syllabus\nSyllabus Link"
+  },
+  {
+    "objectID": "teaching/courses/Ivy-ECON-E202/E202-Spring2017.html",
+    "href": "teaching/courses/Ivy-ECON-E202/E202-Spring2017.html",
+    "title": "Introduction to Microeconomics: ECON-E202",
+    "section": "",
+    "text": "A descriptive and analytical study of the market economy and how it allocates resources. Emphasis is placed on consumer behavior, market structure, pricing, and distribution and determination of wealth and income."
+  },
+  {
+    "objectID": "teaching/courses/Ivy-ECON-E202/E202-Spring2017.html#syllabus",
+    "href": "teaching/courses/Ivy-ECON-E202/E202-Spring2017.html#syllabus",
+    "title": "Introduction to Microeconomics: ECON-E202",
+    "section": "Syllabus",
+    "text": "Syllabus\nSyllabus Link"
+  },
+  {
+    "objectID": "teaching/teaching.html",
+    "href": "teaching/teaching.html",
+    "title": "Teaching",
+    "section": "",
+    "text": "Introduction to Business Statistics: STAT-S301\n\n\nIndiana University - Fall 2022\n\n\n\n\nSTAT-S301\n\n\nIndiana University\n\n\n\n\n\n\n\n\n\n\n\nAug 1, 2022\n\n\n\n\n\n\n  \n\n\n\n\nIntroduction to Business Statistics: STAT-S301\n\n\nIndiana University - Summer 2022\n\n\n\n\nSTAT-S301\n\n\nIndiana University\n\n\n\n\n\n\n\n\n\n\n\nJun 1, 2022\n\n\n\n\n\n\n  \n\n\n\n\nStatistics for Journalists: STAT-S211\n\n\nIndiana University - Spring 2022\n\n\n\n\nSTAT-S211\n\n\nIndiana University\n\n\n\n\n\n\n\n\n\n\n\nJan 1, 2022\n\n\n\n\n\n\n  \n\n\n\n\nStatistics for Journalists: STAT-S211\n\n\nIndiana University - Fall 2021\n\n\n\n\nSTAT-S211\n\n\nIndiana University\n\n\n\n\n\n\n\n\n\n\n\nAug 1, 2021\n\n\n\n\n\n\n  \n\n\n\n\nStatistics for Journalists: STAT-S211\n\n\nIndiana University - Spring 2021\n\n\n\n\nSTAT-S211\n\n\nIndiana University\n\n\n\n\n\n\n\n\n\n\n\nJan 1, 2021\n\n\n\n\n\n\n  \n\n\n\n\nStatistics for Journalists: STAT-S211\n\n\nIndiana University - Fall 2020\n\n\n\n\nSTAT-S211\n\n\nIndiana University\n\n\n\n\n\n\n\n\n\n\n\nAug 1, 2020\n\n\n\n\n\n\n  \n\n\n\n\nIntroduction to Business Statistics: STAT-S301\n\n\nIndiana University - Spring 2020\n\n\n\n\nSTAT-S301\n\n\nIndiana University\n\n\n\n\n\n\n\n\n\n\n\nJan 1, 2020\n\n\n\n\n\n\n  \n\n\n\n\nStatistical Literacy: STAT-S100\n\n\nIndiana University - Fall 2019\n\n\n\n\nSTAT-S100\n\n\nIndiana University\n\n\n\n\n\n\n\n\n\n\n\nAug 1, 2019\n\n\n\n\n\n\n  \n\n\n\n\nIntroduction to Business Statistics: STAT-S301\n\n\nIndiana University - Spring 2019\n\n\n\n\nSTAT-S301\n\n\nIndiana University\n\n\n\n\n\n\n\n\n\n\n\nJan 1, 2019\n\n\n\n\n\n\n  \n\n\n\n\nStatistical Literacy: STAT-S100\n\n\nIndiana University - Fall 2018\n\n\n\n\nSTAT-S100\n\n\nIndiana University\n\n\n\n\n\n\n\n\n\n\n\nAug 1, 2018\n\n\n\n\n\n\n  \n\n\n\n\nIntroduction to Business Statistics: STAT-S301\n\n\nIndiana University - Spring 2018\n\n\n\n\nSTAT-S301\n\n\nIndiana University\n\n\n\n\n\n\n\n\n\n\n\nJan 1, 2018\n\n\n\n\n\n\n  \n\n\n\n\nIntroduction to Macroeconomics: ECON-E201\n\n\nIvy Tech Community College - Fall 2017\n\n\n\n\nECON-E201\n\n\nIvy Tech\n\n\n\n\n\n\n\n\n\n\n\nAug 1, 2017\n\n\n\n\n\n\n  \n\n\n\n\nIntroduction to Macroeconomics: ECON-E201\n\n\nIvy Tech Community College - Summer 2017\n\n\n\n\nECON-E201\n\n\nIvy Tech\n\n\n\n\n\n\n\n\n\n\n\nJun 1, 2017\n\n\n\n\n\n\n  \n\n\n\n\nIntroduction to Microeconomics: ECON-E202\n\n\nIvy Tech Community College - Spring 2017\n\n\n\n\nECON-E202\n\n\nIvy Tech\n\n\n\n\n\n\n\n\n\n\n\nJan 1, 2017\n\n\n\n\n\n\nNo matching items"
+  }
+]
