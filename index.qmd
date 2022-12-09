@@ -1,11 +1,21 @@
 ---
 title: "Robert Granger"
+about:
+  template: trestles
+  image: homepagefiles/RobandTheoVacation.jpg
+  links:
+    - icon: mailbox
+      text: Email
+      href: mailto:rgranger@iu.edu
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/rgranger617
+    - icon: twitter
+      text: twitter
+      href: https://twitter.com/rgranger617
+    - icon: github
+      text: Github
+      href: https://github.com/rgranger617
 ---
 
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
-```{r}
-1 + 1
-```
+Robert (Rob) is a PhD student in the Department of Statistics at Indiana University. He has worked on several research projects in application areas like social media, health safety, music, and human rights involving statistical techniques such as generalized/mixed effect regression, state space modeling, capture-recapture, and Bayesian approaches.
