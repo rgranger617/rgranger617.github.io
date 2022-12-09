@@ -1,0 +1,9 @@
+---
+title: "Hypothesis Testing Calculator"
+subtitle: "Testing of a Single Mean"
+date: May 2016
+categories: ["Hypothesis Testing"]
+format: html
+---
+
+<iframe id="example1" src="https://rgranger617.shinyapps.io/statsapp/" style="border: none; width: 110%; height: 1020px" frameborder="0"></iframe>

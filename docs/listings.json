@@ -1,5 +1,11 @@
 [
   {
+    "listing": "/apps/apps.html",
+    "items": [
+      "/apps/apps/hypothesistesting/hypothesistesting.html"
+    ]
+  },
+  {
     "listing": "/teaching/teaching.html",
     "items": [
       "/teaching/courses/IU-STAT-S301/S301-Fall2022.html",
