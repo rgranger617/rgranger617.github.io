@@ -5,6 +5,8 @@ project:
 website:
   title: "Robert Granger"
   navbar:
+    collapse: false
+    background: "#990000"
     left:
       - href: index.qmd
         text: Home
@@ -16,12 +18,22 @@ website:
         text: Teaching
       - href: apps/apps.qmd
         text: Apps
-
+  page-footer:
+    background: "#990000"
+    border: true
+    right: "© 2022, Robert E. Granger"
+    center:
+      <a href="mailto:rgranger@iu.edu"><i class="bi bi-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/rgranger617"><i class="bi bi-linkedin"></i></a>
+      <a href="https://twitter.com/rgranger617"><i class="bi bi-twitter"></i></a>
+      <a href="https://github.com/rgranger617"><i class="bi bi-github"></i></a>
+      
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
+    backgroundcolor: "#EEEDEB"
 
 editor: visual
 
