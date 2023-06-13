@@ -32,7 +32,7 @@
     "href": "apps/apps.html",
     "title": "Apps",
     "section": "",
-    "text": "Listed below are links to course pages for every class that I’ve taught. Each page contains the official course description along with the course syllabus. If you’d like additional information or course materials, feel free to contact me.\n\n\n\n\n\n\nHypothesis Testing Calculator\n\n\nTesting of a Single Mean\n\n\n\n\nHypothesis Testing\n\n\n\n\n\n\n\n\n\n\n\nMay 1, 2016\n\n\n\n\n\n\nNo matching items"
+    "text": "Listed below are links to course pages for every class that I’ve taught. Each page contains the official course description along with the course syllabus. If you’d like additional information or course materials, feel free to contact me.\n\n\n\n\n  \n\n\n\n\nHypothesis Testing Calculator\n\n\nTesting of a Single Mean\n\n\n\n\nHypothesis Testing\n\n\n\n\n\n\n\n\n\n\n\nMay 1, 2016\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -42,15 +42,64 @@
     "text": "Robert (Rob) is a PhD candidate in the Department of Statistics at Indiana University. He has worked on several research projects in application areas like social media, health safety, music, and human rights involving statistical techniques such as generalized/mixed effect regression, state space modeling, capture-recapture, and Bayesian approaches."
   },
   {
+    "objectID": "research/BFcomptrick.html",
+    "href": "research/BFcomptrick.html",
+    "title": "Computational Trick for Harmonic Mean",
+    "section": "",
+    "text": "In this article, I derive a computational trick for calculating the harmonic mean when the values of \\(x_1, x_2, ... x_n\\) are too small such that we end up with an underflow error. The method is a variation of the ubiquitous computational technique for log sum. I then demonstrate the usefulness of this technique by applying it to calculating the Bayes Factor. Throughout this article, code snippets will be provided using R."
+  },
+  {
+    "objectID": "research/BFcomptrick.html#the-harmonic-mean",
+    "href": "research/BFcomptrick.html#the-harmonic-mean",
+    "title": "Computational Trick for Harmonic Mean",
+    "section": "The Harmonic Mean",
+    "text": "The Harmonic Mean\nIn the early years of schooling and certainly any introductory statistics course, students are taught a handful of measures for central tendency, i.e, computing an average. The most common measures being the mean, median, and mode. Occasionally, other measures are taught such as the mid-range or the interquartile range, but the aforementioned are by far the most popular. Unknown to many, the mean (specifically the arithmetic mean) that is taught is just one of the three Pythagorean means studied by the early Greek mathematicians. The three Pythagorean means are the arithmetic mean, geometric mean, and the harmonic mean.\nArithmetic Mean:\n\\[\nAM(x_1, x_2, ..., x_n) = \\frac{x_1 + x_2 + ... + x_n}{n}\n\\]\nGeometric Mean:\n\\[\nGM(x_1, x_2, ..., x_n) = \\sqrt[N]{x_1 \\times x_2 \\times ... \\times x_n}\n\\]\nHarmonic Mean:\n\\[ HM(x_1, x_2, ..., x_n) = \\frac{n}{\\frac{1}{x_1} + \\frac{1}{x_2} + ... + \\frac{1}{x_n}} \\]\nThis article focuses on the calculation of the harmonic mean. Calculating the harmonic mean is easy! Suppose we have a rather small dataset, \\(\\boldsymbol{X}\\), with 10 values:\n\n\n\n4\n3\n1\n6\n4\n\n\n2\n5\n9\n3\n1\n\n\n\n\nX = c(4, 3, 1, 6, 4,\n      2, 5, 9, 3, 1)\n      \nHM &lt;- function(data){\n  length(data)/sum(1/data)\n}\n\nprint(paste(\"Harmonic Mean is equal to\", HM(X)))\n\n[1] \"Harmonic Mean is equal to 2.41286863270777\"\n\n\nAs we can see, the computation is fairly straightforward, so why are we in need of a trick?"
+  },
+  {
+    "objectID": "research/BFcomptrick.html#the-computational-trick",
+    "href": "research/BFcomptrick.html#the-computational-trick",
+    "title": "Computational Trick for Harmonic Mean",
+    "section": "The Computational Trick",
+    "text": "The Computational Trick\nSuppose instead we had a different dataset, \\(\\boldsymbol{Y}\\), such that the values are so small, they can only be tracked through their natural log. This may seem like an odd situation but is fairly common in the realm of statistics as the data may be a listing of joint probabilities. Let the \\(\\log(\\boldsymbol{Y})\\) be equal to:\n\n\n\n-1000\n-1001\n-999\n-1001\n-1008\n\n\n-1006\n-1000\n-1000\n-998\n-1003\n\n\n\n\nlogY = c(-1000, -1001, -999, -1001, -1008,\n         -1006, -1000, -1000, -998, -1003)\n\nY = exp(logY)\n\nprint(Y)\n\n [1] 0 0 0 0 0 0 0 0 0 0\n\n\nNotice that the computer returns “0” for all value of Y in our dataset. This is wrong though as we know the natural log must be strictly positive. If I attempt to get \\(\\boldsymbol{Y}\\) back by taking the log,\n\nprint(log(Y))\n\n [1] -Inf -Inf -Inf -Inf -Inf -Inf -Inf -Inf -Inf -Inf\n\n\nit now returns all negative infinities instead of our original dataset. The original information of the \\(\\log(\\boldsymbol{Y})\\) is lost as we have an underflow error. In other words, the value of \\(\\boldsymbol{Y}\\) is so close to 0, the computer cannot differentiate it from 0.\nNow it should be noted that the harmonic mean of \\(\\boldsymbol{Y}\\) is so small it is basically 0 as well. However, just like how we tracked our original data on the natural log scale, it would be advantageous for us to be able to track the harmonic mean on the natural log scale as well. This is of course impossible with our current function for the harmonic mean,\n\nprint(paste(\"Harmonic Mean is equal to\", HM(exp(logY))))\n\n[1] \"Harmonic Mean is equal to 0\"\n\n\nas we must first take the exponential of the natural log values before adding them together. This in turn would return -infinity for our value of the natural log of the harmonic mean. So… how do we get around this? We begin by writing down the equation for the harmonic mean in terms of the \\(\\log(y_i)\\):\n\\[\\begin{align}\nHM(\\boldsymbol{Y}) & = \\frac{n}{\\frac{1}{\\exp(\\log(y_1))} + \\frac{1}{\\exp(\\log(y_2))} + ... + \\frac{1}{\\exp(\\log(y_n))}} \\\\\n& = \\frac{n}{\\exp(-\\log(y_1)) + \\exp(-\\log(y_2)) + ... + \\exp(-\\log(y_n))} \\\\\n& = \\left(\\frac{n}{\\exp(c-\\log(y_1)) + \\exp(c-\\log(y_2)) + ... + \\exp(c-\\log(y_n))}\\right)\\exp(c) \\\\\n\\end{align}\\]\nNow, let’s take the natural log of both sides:\n\\[\\begin{align}\n\\log\\Big(HM(\\boldsymbol{Y})\\Big) & = \\log(n) + \\log(c) - \\log\\Big(\\exp(c-\\log(y_1)) + \\exp(c-\\log(y_2)) + ... + \\exp(c-\\log(y_n))\\Big) \\\\\n\\end{align}\\]\nThe equation above no longer requires taking the exponential of \\(y_i\\) but instead the exponential of \\(c-y_i\\) where \\(c\\) is any arbitrary constant. We want to select a \\(c\\) such that we minimize the potential for underflow errors. In this case, the obvious choice is to select \\(c=\\max(\\log(\\boldsymbol{Y}))\\). I code up the function below and compare it with our \\(\\boldsymbol{X}\\) data:\n\nlogHM &lt;- function(logdata){\n  maxlogdata = max(logdata)\n  N = length(logdata)\n  log(N) + maxlogdata - log(sum(exp(maxlogdata-logdata)))\n}\n\n### Original Method without computational trick\nprint(paste(\"Log Harmonic Mean is equal to\", log(HM(X))))\n\n[1] \"Log Harmonic Mean is equal to 0.880816343680495\"\n\n### New Method using computation trick\nprint(paste(\"Log Harmonic Mean is equal to\", logHM(log(X))))\n\n[1] \"Log Harmonic Mean is equal to 0.880816343680495\"\n\n\nAs expected, the two methods return the exact same value. Now, let’s run it on the \\(\\boldsymbol{Y}\\) dataset:\n\n### Original Method without computational trick\nprint(paste(\"Log Harmonic Mean is equal to\", log(HM(Y))))\n\n[1] \"Log Harmonic Mean is equal to -Inf\"\n\n### New Method using computation trick\nprint(paste(\"Log Harmonic Mean is equal to\", logHM(logY)))\n\n[1] \"Log Harmonic Mean is equal to -1005.83288259162\"\n\n\nWhile the simple, direct computation failed with a return of “-Inf”, the new method using the computational trick was able to successfully compute the log harmonic mean."
+  },
+  {
+    "objectID": "research/BFcomptrick.html#extending-the-trick-to-compute-the-bayes-factor",
+    "href": "research/BFcomptrick.html#extending-the-trick-to-compute-the-bayes-factor",
+    "title": "Computational Trick for Harmonic Mean",
+    "section": "Extending the Trick to compute the Bayes Factor",
+    "text": "Extending the Trick to compute the Bayes Factor\nThe goal of almost every Bayesian statistics problem is to determine the posterior distribution of some model parameters, \\(\\theta\\),\n\\[\np(\\theta|data) = \\frac{p(data|\\theta)p(\\theta)}{p(data)}.\n\\]\nFor example, if you have some data that you believe comes from a normal distribution, you may want to understand it’s mean and variance, so \\(\\theta = [\\mu,\\sigma^2]\\). Essentially, we start with some prior information on the parameters, \\(p(\\theta)\\), and update that information with our data likelihood, \\(p(data|\\theta)\\), and obtain our posterior estimate, \\(p(\\theta|data)\\). The denominator of our equation, \\(p(data)\\), is called the marginal data likelihood and is often avoided in calculations by taking advantage of conjugacy or normalization if discrete.\nUnfortuantely, the posterior distribution is subject to constraints imposed by different model choices. A common approach to model selection using Bayesian statistics is through the calculation of the Bayes Factor. The Bayes Factor is simply the odds ratio of obtaining the observed data given two models, \\(M1\\), and \\(M2\\):\n\\[\nBF(M1,M2) = \\frac{p(data|M1)}{p(data|M2)}\n\\]\nNotice, the Bayes Factor is the ratio of the marginal data likelihoods of the two models. The reason this term is often avoided is do to the challenge in it’s calculation as it is the probability of obtaining the data integrated across all parameters.\n\\[\np(data|M_j) = \\int p(data|\\theta,M_j)p(\\theta)d\\theta\n\\]\nNevertheless, (Newton and Raftery 1994) show that we can approximate the marginal data likelihood using samples from the posterior distribution \\(p(data|\\theta,Mi)\\) through the harmonic mean.\n\\[\n\\hat{p}(data|M_j) = \\frac{n}{\\sum_{i=1}^n \\frac{1}{p(data|\\theta_i,Mj)}+\\frac{1}{p(data|\\theta_i,Mj)}+...\\frac{1}{p(data|\\theta_i,Mj)}}\n\\]\nWe can therefore use our computational trick for the harmonic mean to obtain the log of the marginal data likelihood of both models, \\(M_1\\) and \\(M_2\\). We can then compute the log of the Bayes Factor,\n\\[\n\\log\\Big(BF(M_1,M_2)\\Big) = \\log\\Big(p(data|M_1)\\Big) - \\log\\Big(p(data|M_2)\\Big),\n\\]\nand then just take the exponential when we’re all done to get the Bayes Factor.\n\nBF12 &lt;- function(logdata1,logdata2){\n  maxlogdata1 = max(logdata1); maxlogdata2 = max(logdata2)\n  N1 = length(logdata1);N2 = length(logdata2)\n  logpdata1 = log(N1) + maxlogdata1 - log(sum(exp(maxlogdata1-logdata1)))\n  logpdata2 = log(N2) + maxlogdata2 - log(sum(exp(maxlogdata2-logdata2)))\n  exp(logpdata1 - logpdata2)\n}\n\nAnd let’s just generate some data to test this function.\n\nX1 = c(4, 3, 1, 6, 4,\n       2, 5, 9, 3, 1)\nX2 = c(3, 3, 2, 2, 2,\n       1, 5, 1, 7, 7)\n\n\n### No Computational Trick\nHM(X1)/HM(X2)\n\n[1] 1.122558\n\n### Computational Trick\nBF12(log(X1),log(X2))\n\n[1] 1.122558\n\n\nAnd now let’s generate some very small data that needs to be represented by the natural log:\n\nlogY1 = c(-1000, -1000, -1001, -1003, -999,\n          -1010, -1002, -1004, -1003, -998)\nlogY2 = c(-1001, -1009, -1007, -1003, -997,\n          -1010, -1002, -1002, -1002, -999)\n\n\n### No Computational Trick\nHM(exp(logY1))/HM(exp(logY2))\n\n[1] NaN\n\n### Computational Trick\nBF12(logY1,logY2)\n\n[1] 1.41284\n\n\nOnce again, we see the importance of this computational trick as the naive, direct computation fails."
+  },
+  {
+    "objectID": "research/BFcomptrick.html#example-computing-the-bf-with-a-normal-distribution",
+    "href": "research/BFcomptrick.html#example-computing-the-bf-with-a-normal-distribution",
+    "title": "Computational Trick for Harmonic Mean",
+    "section": "Example: Computing the BF with a normal distribution",
+    "text": "Example: Computing the BF with a normal distribution\nIn this section, let’s look at an actual example where we generate samples from our posterior using a Monte Carlo simulation. Suppose you generate 500 observations from a normal distribution with mean, \\(\\mu=10\\), and variance, \\(\\sigma^2 = 3\\).\n\nm = 500\nMU = 10\nSIGMA2 = 3\nX = rnorm(m, MU, sqrt(SIGMA2))\n\nLet’s take a look at this data:\n\nhist(X)\n\n\n\n\nYou show the following histogram to two of your friends, Daniel and Brandon. We are interested in developing a model where we can predict the mean, \\(\\mu\\), but want a fixed variance, \\(\\sigma^2\\). Daniel (\\(M_1\\)) looks at the histogram and proposes that the variance should be fixed at \\(\\sigma^2=3.0\\). Brandon (\\(M_2\\)), on the other hand, looks at the histogram and thinks the variance is \\(\\sigma^2=2.5\\). Which of your friends has proposed the better model?\nSince the variance, \\(\\sigma^2\\) is fixed, we can simply write our posterior as:\n\\[\np(\\mu|X,M_j) = \\frac{p(X|\\mu,M_ij)p(\\mu,M_j)}{p(X|M_j)}\n\\] To ensure an easy to compute posterior, we use a normal prior, \\(p(\\mu)=Normal(0,1)\\). This results in a conjugate posterior normal distribution,\n\\[\np(\\mu|X,M_j) = Normal\\left(\\frac{m\\bar{X}}{\\sigma^2+m},\\frac{\\sigma^2}{\\sigma^2+m}\\right)\n\\] where \\(m\\) is the number of observations and \\(\\bar{X}\\) is the mean of these observations. (See pg 41 of Gelman et. al. 2014 for this solution)\nNow that we know the posterior distribution, we can draw samples from it by sampling from this distribution.\n\nsamples = 10000\n\n### Model 1 (Daniel)\nSIGMA2M1 = 3.0\nposteriorMUM1 = rnorm(samples, m*mean(X)/(SIGMA2M1+m),sqrt(SIGMA2M1/(SIGMA2M1+m)))\n\n\n### Model 2 (Brandon)\nSIGMA2M2 = 2.8\nposteriorMUM2 = rnorm(samples, m*mean(X)/(SIGMA2M2+m),sqrt(SIGMA2M2/(SIGMA2M2+m)))\n\nAfter obtaining 10,000 samples from the posterior, the data likelihood at each sample can be computed via \\(p(data|\\theta) = p(X|\\mu) = Normal(X|\\mu_i)\\).\n\nmlikeM1 = rep(NA,samples)\nfor(i in 1:samples){\n  MUi = posteriorMUM1[i]\n  mlikeM1[i] = prod(dnorm(X,MUi,sqrt(SIGMA2M1)))\n}\n\nmlikeM2 = rep(NA,samples)\nmloglikeM2 = rep(NA,samples)\nfor(i in 1:samples){\n  MUi = posteriorMUM1[i]\n  mlikeM2[i] = prod(dnorm(X,MUi,sqrt(SIGMA2M2)))\n}\n\nThen compute the Bayes Factor by taking the ratio of harmonic means of the data likelihoods:\n\nHM(mlikeM1)/HM(mlikeM2)\n\n[1] NaN\n\n\nOh no! It returned NaN! Something has gone wrong. Let’s look at the the first 5 likelihood values from each of our samples:\n\nhead(mlikeM1); head(mlikeM2)\n\n[1] 0 0 0 0 0 0\n\n\n[1] 0 0 0 0 0 0\n\n\nAll of the values are being reported as 0, but this is not possible as we’re multiply a bunch of terms that are all strictly greater than 0 (albeit very small). It looks like we’re experiencing an underflow issue. Let’s instead compute the log likelihoods and use our computational trick.\n\nmloglikeM1 = rep(NA,samples)\nfor(i in 1:samples){\n  MUi = posteriorMUM1[i]\n  mloglikeM1[i] = sum(dnorm(X,MUi,sqrt(SIGMA2M1),log=TRUE))\n}\n\nmloglikeM2 = rep(NA,samples)\nfor(i in 1:samples){\n  MUi = posteriorMUM1[i]\n  mloglikeM2[i] = sum(dnorm(X,MUi,sqrt(SIGMA2M2),log=TRUE))\n}\n\n\nBF12(mloglikeM1,mloglikeM2)\n\n[1] 4.323865\n\n\nWe have successfully avoided the underflow issue and computed the Bayes Factor. Since we created the data, we know the better model was Daniel’s as he proposed the true variance, \\(\\sigma^2=3\\). If we didn’t create the data though, we could have made this conclusion though since the Bayes Factor is greater than 1, indicating \\(M_1\\) is the better fit. Without this computational trick, we would not have been able to solve for the Bayes Factor and reach this conclusion."
+  },
+  {
+    "objectID": "research/BFcomptrick.html#references",
+    "href": "research/BFcomptrick.html#references",
+    "title": "Computational Trick for Harmonic Mean",
+    "section": "References",
+    "text": "References\nGelman, A., Carlin, J. B., Stern, H. S., Dunson, D. B., Vehtari, A., and Rubin, D. B. (2014). Bayesian Data Analysis. Chapman & Hall/CRC, third edition.\nNewton, M. A. Raftery, A.E. (1994). Approximate Bayesian Inference with the Weighted Likelihood Bootstrap. Journal of the Royal Statistical Society: Series B (Methodological), 56(1):3-26."
+  },
+  {
     "objectID": "research/research.html",
     "href": "research/research.html",
     "title": "Research",
     "section": "",
-    "text": "Capture-Recapture (Multiple Systems Estimation)\n\nExploring the capture-recapture problem with observed and unobserved heterogeneity.\nBayesian, MCMC, data imputation\nThis research is taking place under the guidance of Professor Daniel Manrique-Vallier.\nProposal Defense: Successful\nDissertation Defense: Expected May 2024\n\nSwitching State Space Models for Interpreting Musical Dynamics\n\nSwitching State Space Models for Interpreting Musical Dynamics - draft\nWork in progress used for my data analysis qualifying exam (2020).\nThis research took place under the guidance of Professor Daniel McDonald."
+    "text": "Capture-Recapture (Multiple Systems Estimation)\n\nExploring the capture-recapture problem with observed and unobserved heterogeneity.\nBayesian, MCMC, data imputation\nThis research is taking place under the guidance of Professor Daniel Manrique-Vallier.\nProposal Defense: Successful\nDissertation Defense: Expected May 2024\n\nSwitching State Space Models for Interpreting Musical Dynamics\n\nSwitching State Space Models for Interpreting Musical Dynamics - draft\nWork in progress used for my data analysis qualifying exam (2020).\nThis research took place under the guidance of Professor Daniel McDonald.\n\nShort Articles\n\nComputational Trick for the Harmonic Mean / Bayes Factor"
   },
   {
     "objectID": "teaching/courses/IU-STAT-S100/S100-Fall2018.html",
     "href": "teaching/courses/IU-STAT-S100/S100-Fall2018.html",
+    "title": "Statistical Literacy: STAT-S100",
+    "section": "",
+    "text": "STAT-S 100 Statistical Literacy (3 cr.) CASE N&M P: MATH-M 014 or equivalent. How to be an informed consumer of statistical analysis. Experiments and observational studies, summarizing and displaying data, relationships between variables, quantifying uncertainty, drawing statistical inferences."
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S100/S100-Fall2018.html#iu-course-description",
+    "href": "teaching/courses/IU-STAT-S100/S100-Fall2018.html#iu-course-description",
     "title": "Statistical Literacy: STAT-S100",
     "section": "",
     "text": "STAT-S 100 Statistical Literacy (3 cr.) CASE N&M P: MATH-M 014 or equivalent. How to be an informed consumer of statistical analysis. Experiments and observational studies, summarizing and displaying data, relationships between variables, quantifying uncertainty, drawing statistical inferences."
@@ -70,6 +119,13 @@
     "text": "STAT-S 100 Statistical Literacy (3 cr.) CASE N&M P: MATH-M 014 or equivalent. How to be an informed consumer of statistical analysis. Experiments and observational studies, summarizing and displaying data, relationships between variables, quantifying uncertainty, drawing statistical inferences."
   },
   {
+    "objectID": "teaching/courses/IU-STAT-S100/S100-Fall2019.html#iu-course-description",
+    "href": "teaching/courses/IU-STAT-S100/S100-Fall2019.html#iu-course-description",
+    "title": "Statistical Literacy: STAT-S100",
+    "section": "",
+    "text": "STAT-S 100 Statistical Literacy (3 cr.) CASE N&M P: MATH-M 014 or equivalent. How to be an informed consumer of statistical analysis. Experiments and observational studies, summarizing and displaying data, relationships between variables, quantifying uncertainty, drawing statistical inferences."
+  },
+  {
     "objectID": "teaching/courses/IU-STAT-S100/S100-Fall2019.html#syllabus",
     "href": "teaching/courses/IU-STAT-S100/S100-Fall2019.html#syllabus",
     "title": "Statistical Literacy: STAT-S100",
@@ -79,6 +135,13 @@
   {
     "objectID": "teaching/courses/IU-STAT-S211/S211-Fall2020.html",
     "href": "teaching/courses/IU-STAT-S211/S211-Fall2020.html",
+    "title": "Statistics for Journalists: STAT-S211",
+    "section": "",
+    "text": "STAT-S 211 Statistics for Journalists (3 cr.) CASE N&M P: MATH-M 014 or equivalent. Essential statistical concepts and tools for journalists in the age of data, including probability, graphics, descriptive statistics, prediction, study design, comparison, testing, and estimation. The course has a heavier emphasis on writing and reading media reports than other introductory statistics courses."
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S211/S211-Fall2020.html#iu-course-description",
+    "href": "teaching/courses/IU-STAT-S211/S211-Fall2020.html#iu-course-description",
     "title": "Statistics for Journalists: STAT-S211",
     "section": "",
     "text": "STAT-S 211 Statistics for Journalists (3 cr.) CASE N&M P: MATH-M 014 or equivalent. Essential statistical concepts and tools for journalists in the age of data, including probability, graphics, descriptive statistics, prediction, study design, comparison, testing, and estimation. The course has a heavier emphasis on writing and reading media reports than other introductory statistics courses."
@@ -98,6 +161,13 @@
     "text": "STAT-S 211 Statistics for Journalists (3 cr.) CASE N&M P: MATH-M 014 or equivalent. Essential statistical concepts and tools for journalists in the age of data, including probability, graphics, descriptive statistics, prediction, study design, comparison, testing, and estimation. The course has a heavier emphasis on writing and reading media reports than other introductory statistics courses."
   },
   {
+    "objectID": "teaching/courses/IU-STAT-S211/S211-Fall2021.html#iu-course-description",
+    "href": "teaching/courses/IU-STAT-S211/S211-Fall2021.html#iu-course-description",
+    "title": "Statistics for Journalists: STAT-S211",
+    "section": "",
+    "text": "STAT-S 211 Statistics for Journalists (3 cr.) CASE N&M P: MATH-M 014 or equivalent. Essential statistical concepts and tools for journalists in the age of data, including probability, graphics, descriptive statistics, prediction, study design, comparison, testing, and estimation. The course has a heavier emphasis on writing and reading media reports than other introductory statistics courses."
+  },
+  {
     "objectID": "teaching/courses/IU-STAT-S211/S211-Fall2021.html#syllabus",
     "href": "teaching/courses/IU-STAT-S211/S211-Fall2021.html#syllabus",
     "title": "Statistics for Journalists: STAT-S211",
@@ -107,6 +177,13 @@
   {
     "objectID": "teaching/courses/IU-STAT-S211/S211-Spring2021.html",
     "href": "teaching/courses/IU-STAT-S211/S211-Spring2021.html",
+    "title": "Statistics for Journalists: STAT-S211",
+    "section": "",
+    "text": "STAT-S 211 Statistics for Journalists (3 cr.) CASE N&M P: MATH-M 014 or equivalent. Essential statistical concepts and tools for journalists in the age of data, including probability, graphics, descriptive statistics, prediction, study design, comparison, testing, and estimation. The course has a heavier emphasis on writing and reading media reports than other introductory statistics courses."
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S211/S211-Spring2021.html#iu-course-description",
+    "href": "teaching/courses/IU-STAT-S211/S211-Spring2021.html#iu-course-description",
     "title": "Statistics for Journalists: STAT-S211",
     "section": "",
     "text": "STAT-S 211 Statistics for Journalists (3 cr.) CASE N&M P: MATH-M 014 or equivalent. Essential statistical concepts and tools for journalists in the age of data, including probability, graphics, descriptive statistics, prediction, study design, comparison, testing, and estimation. The course has a heavier emphasis on writing and reading media reports than other introductory statistics courses."
@@ -126,6 +203,13 @@
     "text": "STAT-S 211 Statistics for Journalists (3 cr.) CASE N&M P: MATH-M 014 or equivalent. Essential statistical concepts and tools for journalists in the age of data, including probability, graphics, descriptive statistics, prediction, study design, comparison, testing, and estimation. The course has a heavier emphasis on writing and reading media reports than other introductory statistics courses."
   },
   {
+    "objectID": "teaching/courses/IU-STAT-S211/S211-Spring2022.html#iu-course-description",
+    "href": "teaching/courses/IU-STAT-S211/S211-Spring2022.html#iu-course-description",
+    "title": "Statistics for Journalists: STAT-S211",
+    "section": "",
+    "text": "STAT-S 211 Statistics for Journalists (3 cr.) CASE N&M P: MATH-M 014 or equivalent. Essential statistical concepts and tools for journalists in the age of data, including probability, graphics, descriptive statistics, prediction, study design, comparison, testing, and estimation. The course has a heavier emphasis on writing and reading media reports than other introductory statistics courses."
+  },
+  {
     "objectID": "teaching/courses/IU-STAT-S211/S211-Spring2022.html#syllabus",
     "href": "teaching/courses/IU-STAT-S211/S211-Spring2022.html#syllabus",
     "title": "Statistics for Journalists: STAT-S211",
@@ -135,6 +219,13 @@
   {
     "objectID": "teaching/courses/IU-STAT-S301/S301-Fall2022.html",
     "href": "teaching/courses/IU-STAT-S301/S301-Fall2022.html",
+    "title": "Introduction to Business Statistics: STAT-S301",
+    "section": "",
+    "text": "STAT-S 301 Applied Statistical Methods for Business (3 cr.) CASE N&M P: MATH-M 118 or equivalent. Introduction to methods for analyzing data arising in business, designed to prepare business students for the Kelley School’s Integrative Core. Graphical and numerical descriptions of data, probability models, fundamental principles of estimation and hypothesis testing, applications to linear regression and quality control. Microsoft Excel used to perform analyses."
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S301/S301-Fall2022.html#iu-course-description",
+    "href": "teaching/courses/IU-STAT-S301/S301-Fall2022.html#iu-course-description",
     "title": "Introduction to Business Statistics: STAT-S301",
     "section": "",
     "text": "STAT-S 301 Applied Statistical Methods for Business (3 cr.) CASE N&M P: MATH-M 118 or equivalent. Introduction to methods for analyzing data arising in business, designed to prepare business students for the Kelley School’s Integrative Core. Graphical and numerical descriptions of data, probability models, fundamental principles of estimation and hypothesis testing, applications to linear regression and quality control. Microsoft Excel used to perform analyses."
@@ -154,6 +245,13 @@
     "text": "STAT-S 301 Applied Statistical Methods for Business (3 cr.) CASE N&M P: MATH-M 118 or equivalent. Introduction to methods for analyzing data arising in business, designed to prepare business students for the Kelley School’s Integrative Core. Graphical and numerical descriptions of data, probability models, fundamental principles of estimation and hypothesis testing, applications to linear regression and quality control. Microsoft Excel used to perform analyses."
   },
   {
+    "objectID": "teaching/courses/IU-STAT-S301/S301-Spring2018.html#iu-course-description",
+    "href": "teaching/courses/IU-STAT-S301/S301-Spring2018.html#iu-course-description",
+    "title": "Introduction to Business Statistics: STAT-S301",
+    "section": "",
+    "text": "STAT-S 301 Applied Statistical Methods for Business (3 cr.) CASE N&M P: MATH-M 118 or equivalent. Introduction to methods for analyzing data arising in business, designed to prepare business students for the Kelley School’s Integrative Core. Graphical and numerical descriptions of data, probability models, fundamental principles of estimation and hypothesis testing, applications to linear regression and quality control. Microsoft Excel used to perform analyses."
+  },
+  {
     "objectID": "teaching/courses/IU-STAT-S301/S301-Spring2018.html#syllabus",
     "href": "teaching/courses/IU-STAT-S301/S301-Spring2018.html#syllabus",
     "title": "Introduction to Business Statistics: STAT-S301",
@@ -163,6 +261,13 @@
   {
     "objectID": "teaching/courses/IU-STAT-S301/S301-Spring2019.html",
     "href": "teaching/courses/IU-STAT-S301/S301-Spring2019.html",
+    "title": "Introduction to Business Statistics: STAT-S301",
+    "section": "",
+    "text": "STAT-S 301 Applied Statistical Methods for Business (3 cr.) CASE N&M P: MATH-M 118 or equivalent. Introduction to methods for analyzing data arising in business, designed to prepare business students for the Kelley School’s Integrative Core. Graphical and numerical descriptions of data, probability models, fundamental principles of estimation and hypothesis testing, applications to linear regression and quality control. Microsoft Excel used to perform analyses."
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S301/S301-Spring2019.html#iu-course-description",
+    "href": "teaching/courses/IU-STAT-S301/S301-Spring2019.html#iu-course-description",
     "title": "Introduction to Business Statistics: STAT-S301",
     "section": "",
     "text": "STAT-S 301 Applied Statistical Methods for Business (3 cr.) CASE N&M P: MATH-M 118 or equivalent. Introduction to methods for analyzing data arising in business, designed to prepare business students for the Kelley School’s Integrative Core. Graphical and numerical descriptions of data, probability models, fundamental principles of estimation and hypothesis testing, applications to linear regression and quality control. Microsoft Excel used to perform analyses."
@@ -182,6 +287,13 @@
     "text": "STAT-S 301 Applied Statistical Methods for Business (3 cr.) CASE N&M P: MATH-M 118 or equivalent. Introduction to methods for analyzing data arising in business, designed to prepare business students for the Kelley School’s Integrative Core. Graphical and numerical descriptions of data, probability models, fundamental principles of estimation and hypothesis testing, applications to linear regression and quality control. Microsoft Excel used to perform analyses."
   },
   {
+    "objectID": "teaching/courses/IU-STAT-S301/S301-Spring2020.html#iu-course-description",
+    "href": "teaching/courses/IU-STAT-S301/S301-Spring2020.html#iu-course-description",
+    "title": "Introduction to Business Statistics: STAT-S301",
+    "section": "",
+    "text": "STAT-S 301 Applied Statistical Methods for Business (3 cr.) CASE N&M P: MATH-M 118 or equivalent. Introduction to methods for analyzing data arising in business, designed to prepare business students for the Kelley School’s Integrative Core. Graphical and numerical descriptions of data, probability models, fundamental principles of estimation and hypothesis testing, applications to linear regression and quality control. Microsoft Excel used to perform analyses."
+  },
+  {
     "objectID": "teaching/courses/IU-STAT-S301/S301-Spring2020.html#syllabus",
     "href": "teaching/courses/IU-STAT-S301/S301-Spring2020.html#syllabus",
     "title": "Introduction to Business Statistics: STAT-S301",
@@ -191,6 +303,13 @@
   {
     "objectID": "teaching/courses/IU-STAT-S301/S301-Spring2023.html",
     "href": "teaching/courses/IU-STAT-S301/S301-Spring2023.html",
+    "title": "Introduction to Business Statistics: STAT-S301",
+    "section": "",
+    "text": "STAT-S 301 Applied Statistical Methods for Business (3 cr.) CASE N&M P: MATH-M 118 or equivalent. Introduction to methods for analyzing data arising in business, designed to prepare business students for the Kelley School’s Integrative Core. Graphical and numerical descriptions of data, probability models, fundamental principles of estimation and hypothesis testing, applications to linear regression and quality control. Microsoft Excel used to perform analyses."
+  },
+  {
+    "objectID": "teaching/courses/IU-STAT-S301/S301-Spring2023.html#iu-course-description",
+    "href": "teaching/courses/IU-STAT-S301/S301-Spring2023.html#iu-course-description",
     "title": "Introduction to Business Statistics: STAT-S301",
     "section": "",
     "text": "STAT-S 301 Applied Statistical Methods for Business (3 cr.) CASE N&M P: MATH-M 118 or equivalent. Introduction to methods for analyzing data arising in business, designed to prepare business students for the Kelley School’s Integrative Core. Graphical and numerical descriptions of data, probability models, fundamental principles of estimation and hypothesis testing, applications to linear regression and quality control. Microsoft Excel used to perform analyses."
@@ -210,6 +329,13 @@
     "text": "STAT-S 301 Applied Statistical Methods for Business (3 cr.) CASE N&M P: MATH-M 118 or equivalent. Introduction to methods for analyzing data arising in business, designed to prepare business students for the Kelley School’s Integrative Core. Graphical and numerical descriptions of data, probability models, fundamental principles of estimation and hypothesis testing, applications to linear regression and quality control. Microsoft Excel used to perform analyses."
   },
   {
+    "objectID": "teaching/courses/IU-STAT-S301/S301-Summer2022.html#iu-course-description",
+    "href": "teaching/courses/IU-STAT-S301/S301-Summer2022.html#iu-course-description",
+    "title": "Introduction to Business Statistics: STAT-S301",
+    "section": "",
+    "text": "STAT-S 301 Applied Statistical Methods for Business (3 cr.) CASE N&M P: MATH-M 118 or equivalent. Introduction to methods for analyzing data arising in business, designed to prepare business students for the Kelley School’s Integrative Core. Graphical and numerical descriptions of data, probability models, fundamental principles of estimation and hypothesis testing, applications to linear regression and quality control. Microsoft Excel used to perform analyses."
+  },
+  {
     "objectID": "teaching/courses/IU-STAT-S301/S301-Summer2022.html#syllabus",
     "href": "teaching/courses/IU-STAT-S301/S301-Summer2022.html#syllabus",
     "title": "Introduction to Business Statistics: STAT-S301",
@@ -219,6 +345,13 @@
   {
     "objectID": "teaching/courses/Ivy-ECON-E201/E201-Fall2017.html",
     "href": "teaching/courses/Ivy-ECON-E201/E201-Fall2017.html",
+    "title": "Introduction to Macroeconomics: ECON-E201",
+    "section": "",
+    "text": "A descriptive and analytical study of fundamental concepts of national economics. It includes an analysis of the determination and fluctuations in national income and employment, monetary and fiscal policy, and international trade and finance. Economic analysis of monetary and fiscal policies is stressed."
+  },
+  {
+    "objectID": "teaching/courses/Ivy-ECON-E201/E201-Fall2017.html#ivy-tech-course-description",
+    "href": "teaching/courses/Ivy-ECON-E201/E201-Fall2017.html#ivy-tech-course-description",
     "title": "Introduction to Macroeconomics: ECON-E201",
     "section": "",
     "text": "A descriptive and analytical study of fundamental concepts of national economics. It includes an analysis of the determination and fluctuations in national income and employment, monetary and fiscal policy, and international trade and finance. Economic analysis of monetary and fiscal policies is stressed."
@@ -238,6 +371,13 @@
     "text": "A descriptive and analytical study of fundamental concepts of national economics. It includes an analysis of the determination and fluctuations in national income and employment, monetary and fiscal policy, and international trade and finance. Economic analysis of monetary and fiscal policies is stressed."
   },
   {
+    "objectID": "teaching/courses/Ivy-ECON-E201/E201-Summer2017.html#ivy-tech-course-description",
+    "href": "teaching/courses/Ivy-ECON-E201/E201-Summer2017.html#ivy-tech-course-description",
+    "title": "Introduction to Macroeconomics: ECON-E201",
+    "section": "",
+    "text": "A descriptive and analytical study of fundamental concepts of national economics. It includes an analysis of the determination and fluctuations in national income and employment, monetary and fiscal policy, and international trade and finance. Economic analysis of monetary and fiscal policies is stressed."
+  },
+  {
     "objectID": "teaching/courses/Ivy-ECON-E201/E201-Summer2017.html#syllabus",
     "href": "teaching/courses/Ivy-ECON-E201/E201-Summer2017.html#syllabus",
     "title": "Introduction to Macroeconomics: ECON-E201",
@@ -247,6 +387,13 @@
   {
     "objectID": "teaching/courses/Ivy-ECON-E202/E202-Spring2017.html",
     "href": "teaching/courses/Ivy-ECON-E202/E202-Spring2017.html",
+    "title": "Introduction to Microeconomics: ECON-E202",
+    "section": "",
+    "text": "A descriptive and analytical study of the market economy and how it allocates resources. Emphasis is placed on consumer behavior, market structure, pricing, and distribution and determination of wealth and income."
+  },
+  {
+    "objectID": "teaching/courses/Ivy-ECON-E202/E202-Spring2017.html#ivy-tech-course-description",
+    "href": "teaching/courses/Ivy-ECON-E202/E202-Spring2017.html#ivy-tech-course-description",
     "title": "Introduction to Microeconomics: ECON-E202",
     "section": "",
     "text": "A descriptive and analytical study of the market economy and how it allocates resources. Emphasis is placed on consumer behavior, market structure, pricing, and distribution and determination of wealth and income."

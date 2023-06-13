@@ -1,0 +1,318 @@
+---
+title: "Computational Trick for Harmonic Mean"
+subtitle: "A Helpful Step in Computing the Bayes Factor"
+author: "Robert Granger"
+format: html
+editor: visual
+---
+
+In this article, I derive a *computational trick* for calculating the harmonic mean when the values of $x_1, x_2, ... x_n$ are too small such that we end up with an [underflow](https://en.wikipedia.org/wiki/Arithmetic_underflow) error. The method is a variation of the ubiquitous computational technique for log sum. I then demonstrate the usefulness of this technique by applying it to calculating the Bayes Factor. Throughout this article, code snippets will be provided using **R**.
+
+## The Harmonic Mean
+
+In the early years of schooling and certainly any introductory statistics course, students are taught a handful of measures for [central tendency](https://en.wikipedia.org/wiki/Central_tendency), i.e, computing an [average](https://en.wikipedia.org/wiki/Average). The most common measures being the [mean](https://en.wikipedia.org/wiki/Arithmetic_mean), [median](https://en.wikipedia.org/wiki/Median), and [mode](https://en.wikipedia.org/wiki/Mode_(statistics)). Occasionally, other measures are taught such as the mid-range or the interquartile range, but the aforementioned are by far the most popular. Unknown to many, the mean (specifically the arithmetic mean) that is taught is just one of the three [Pythagorean means](https://en.wikipedia.org/wiki/Pythagorean_means) studied by the early Greek mathematicians. The three Pythagorean means are the arithmetic mean, geometric mean, and the harmonic mean.
+
+*Arithmetic Mean:*
+
+$$
+AM(x_1, x_2, ..., x_n) = \frac{x_1 + x_2 + ... + x_n}{n}
+$$
+
+*Geometric Mean:*
+
+$$
+GM(x_1, x_2, ..., x_n) = \sqrt[N]{x_1 \times x_2 \times ... \times x_n}
+$$
+
+*Harmonic Mean:*
+
+$$ HM(x_1, x_2, ..., x_n) = \frac{n}{\frac{1}{x_1} + \frac{1}{x_2} + ... + \frac{1}{x_n}} $$
+
+This article focuses on the calculation of the harmonic mean. Calculating the harmonic mean is easy! Suppose we have a rather small dataset, $\boldsymbol{X}$, with 10 values:
+
+|     |     |     |     |     |
+|:---:|:---:|:---:|:---:|:---:|
+|  4  |  3  |  1  |  6  |  4  |
+|  2  |  5  |  9  |  3  |  1  |
+
+```{R harmonicmeancomputationx}
+X = c(4, 3, 1, 6, 4,
+      2, 5, 9, 3, 1)
+      
+HM <- function(data){
+  length(data)/sum(1/data)
+}
+
+print(paste("Harmonic Mean is equal to", HM(X)))
+```
+
+As we can see, the computation is fairly straightforward, so why are we in need of a trick?
+
+## The Computational Trick
+
+Suppose instead we had a different dataset, $\boldsymbol{Y}$, such that the values are so small, they can only be tracked through their natural log. This may seem like an odd situation but is fairly common in the realm of statistics as the data may be a listing of joint probabilities. Let the $\log(\boldsymbol{Y})$ be equal to:
+
+|       |       |       |       |       |
+|:-----:|:-----:|:-----:|:-----:|:-----:|
+| -1000 | -1001 | -999  | -1001 | -1008 |
+| -1006 | -1000 | -1000 | -998  | -1003 |
+
+```{R logYtoY1}
+logY = c(-1000, -1001, -999, -1001, -1008,
+         -1006, -1000, -1000, -998, -1003)
+
+Y = exp(logY)
+
+print(Y)
+```
+
+Notice that the computer returns "0" for all value of Y in our dataset. This is wrong though as we know the natural log must be strictly positive. If I attempt to get $\boldsymbol{Y}$ back by taking the log,
+
+```{R logYtoY2}
+print(log(Y))
+```
+
+it now returns all negative infinities instead of our original dataset. The original information of the $\log(\boldsymbol{Y})$ is lost as we have an underflow error. In other words, the value of $\boldsymbol{Y}$ is so close to 0, the computer cannot differentiate it from 0.
+
+Now it should be noted that the harmonic mean of $\boldsymbol{Y}$ is so small it is basically 0 as well. However, just like how we tracked our original data on the natural log scale, it would be advantageous for us to be able to track the harmonic mean on the natural log scale as well. This is of course impossible with our current function for the harmonic mean,
+
+```{R harmonicmeancomputationlogy}
+print(paste("Harmonic Mean is equal to", HM(exp(logY))))
+```
+
+as we must first take the exponential of the natural log values before adding them together. This in turn would return -infinity for our value of the natural log of the harmonic mean. So... how do we get around this? We begin by writing down the equation for the harmonic mean in terms of the $\log(y_i)$:
+
+```{=tex}
+\begin{align}
+HM(\boldsymbol{Y}) & = \frac{n}{\frac{1}{\exp(\log(y_1))} + \frac{1}{\exp(\log(y_2))} + ... + \frac{1}{\exp(\log(y_n))}} \\
+& = \frac{n}{\exp(-\log(y_1)) + \exp(-\log(y_2)) + ... + \exp(-\log(y_n))} \\
+& = \left(\frac{n}{\exp(c-\log(y_1)) + \exp(c-\log(y_2)) + ... + \exp(c-\log(y_n))}\right)\exp(c) \\
+\end{align}
+```
+Now, let's take the natural log of both sides:
+
+```{=tex}
+\begin{align}
+\log\Big(HM(\boldsymbol{Y})\Big) & = \log(n) + \log(c) - \log\Big(\exp(c-\log(y_1)) + \exp(c-\log(y_2)) + ... + \exp(c-\log(y_n))\Big) \\
+\end{align}
+```
+The equation above no longer requires taking the exponential of $y_i$ but instead the exponential of $c-y_i$ where $c$ is any arbitrary constant. We want to select a $c$ such that we minimize the potential for underflow errors. In this case, the obvious choice is to select $c=\max(\log(\boldsymbol{Y}))$. I code up the function below and compare it with our $\boldsymbol{X}$ data:
+
+```{R}
+logHM <- function(logdata){
+  maxlogdata = max(logdata)
+  N = length(logdata)
+  log(N) + maxlogdata - log(sum(exp(maxlogdata-logdata)))
+}
+
+### Original Method without computational trick
+print(paste("Log Harmonic Mean is equal to", log(HM(X))))
+
+### New Method using computation trick
+print(paste("Log Harmonic Mean is equal to", logHM(log(X))))
+
+```
+
+As expected, the two methods return the exact same value. Now, let's run it on the $\boldsymbol{Y}$ dataset:
+
+```{R}
+### Original Method without computational trick
+print(paste("Log Harmonic Mean is equal to", log(HM(Y))))
+
+### New Method using computation trick
+print(paste("Log Harmonic Mean is equal to", logHM(logY)))
+
+```
+
+While the simple, direct computation failed with a return of "-Inf", the new method using the computational trick was able to successfully compute the log harmonic mean.
+
+## Extending the Trick to compute the Bayes Factor
+
+The goal of almost every Bayesian statistics problem is to determine the posterior distribution of some model parameters, $\theta$,
+
+$$
+p(\theta|data) = \frac{p(data|\theta)p(\theta)}{p(data)}.
+$$
+
+For example, if you have some data that you believe comes from a normal distribution, you may want to understand it's mean and variance, so $\theta = [\mu,\sigma^2]$. Essentially, we start with some prior information on the parameters, $p(\theta)$, and update that information with our data likelihood, $p(data|\theta)$, and obtain our posterior estimate, $p(\theta|data)$. The denominator of our equation, $p(data)$, is called the ***marginal data likelihood*** and is often avoided in calculations by taking advantage of conjugacy or normalization if discrete.
+
+Unfortuantely, the posterior distribution is subject to constraints imposed by different model choices. A common approach to model selection using Bayesian statistics is through the calculation of the Bayes Factor. The Bayes Factor is simply the odds ratio of obtaining the observed data given two models, $M1$, and $M2$:
+
+$$
+BF(M1,M2) = \frac{p(data|M1)}{p(data|M2)}
+$$
+
+Notice, the Bayes Factor is the ratio of the marginal data likelihoods of the two models. The reason this term is often avoided is do to the challenge in it's calculation as it is the probability of obtaining the data integrated across all parameters.
+
+$$
+p(data|M_j) = \int p(data|\theta,M_j)p(\theta)d\theta
+$$
+
+Nevertheless, ([Newton and Raftery 1994](https://www.jstor.org/stable/2346025)) show that we can approximate the marginal data likelihood using samples from the posterior distribution $p(data|\theta,Mi)$ through the harmonic mean.
+
+$$
+\hat{p}(data|M_j) = \frac{n}{\sum_{i=1}^n \frac{1}{p(data|\theta_i,Mj)}+\frac{1}{p(data|\theta_i,Mj)}+...\frac{1}{p(data|\theta_i,Mj)}}
+$$
+
+We can therefore use our computational trick for the harmonic mean to obtain the log of the marginal data likelihood of both models, $M_1$ and $M_2$. We can then compute the log of the Bayes Factor,
+
+$$
+\log\Big(BF(M_1,M_2)\Big) = \log\Big(p(data|M_1)\Big) - \log\Big(p(data|M_2)\Big),
+$$
+
+and then just take the exponential when we're all done to get the Bayes Factor.
+
+```{R}
+BF12 <- function(logdata1,logdata2){
+  maxlogdata1 = max(logdata1); maxlogdata2 = max(logdata2)
+  N1 = length(logdata1);N2 = length(logdata2)
+  logpdata1 = log(N1) + maxlogdata1 - log(sum(exp(maxlogdata1-logdata1)))
+  logpdata2 = log(N2) + maxlogdata2 - log(sum(exp(maxlogdata2-logdata2)))
+  exp(logpdata1 - logpdata2)
+}
+```
+
+And let's just generate some data to test this function.
+
+```{R}
+X1 = c(4, 3, 1, 6, 4,
+       2, 5, 9, 3, 1)
+X2 = c(3, 3, 2, 2, 2,
+       1, 5, 1, 7, 7)
+```
+
+```{R}
+### No Computational Trick
+HM(X1)/HM(X2)
+
+
+### Computational Trick
+BF12(log(X1),log(X2))
+
+```
+
+And now let's generate some very small data that needs to be represented by the natural log:
+
+```{R}
+logY1 = c(-1000, -1000, -1001, -1003, -999,
+          -1010, -1002, -1004, -1003, -998)
+logY2 = c(-1001, -1009, -1007, -1003, -997,
+          -1010, -1002, -1002, -1002, -999)
+```
+
+```{R}
+### No Computational Trick
+HM(exp(logY1))/HM(exp(logY2))
+
+
+### Computational Trick
+BF12(logY1,logY2)
+
+```
+
+Once again, we see the importance of this computational trick as the naive, direct computation fails.
+
+## Example: Computing the BF with a normal distribution
+
+In this section, let's look at an actual example where we generate samples from our posterior using a Monte Carlo simulation. Suppose you generate 500 observations from a normal distribution with mean, $\mu=10$, and variance, $\sigma^2 = 3$.
+
+```{R,echo=FALSE}
+set.seed(1)
+```
+
+```{R}
+m = 500
+MU = 10
+SIGMA2 = 3
+X = rnorm(m, MU, sqrt(SIGMA2))
+```
+
+Let's take a look at this data:
+
+```{R}
+hist(X)
+```
+
+You show the following histogram to two of your friends, Daniel and Brandon. We are interested in developing a model where we can predict the mean, $\mu$, but want a fixed variance, $\sigma^2$. Daniel ($M_1$) looks at the histogram and proposes that the variance should be fixed at $\sigma^2=3.0$. Brandon ($M_2$), on the other hand, looks at the histogram and thinks the variance is $\sigma^2=2.5$. Which of your friends has proposed the better model?
+
+Since the variance, $\sigma^2$ is fixed, we can simply write our posterior as:
+
+$$
+p(\mu|X,M_j) = \frac{p(X|\mu,M_ij)p(\mu,M_j)}{p(X|M_j)}
+$$ To ensure an easy to compute posterior, we use a normal prior, $p(\mu)=Normal(0,1)$. This results in a conjugate posterior normal distribution,
+
+$$
+p(\mu|X,M_j) = Normal\left(\frac{m\bar{X}}{\sigma^2+m},\frac{\sigma^2}{\sigma^2+m}\right)
+$$ where $m$ is the number of observations and $\bar{X}$ is the mean of these observations. (See pg 41 of [Gelman et. al. 2014](https://stat.columbia.edu/~gelman/book/) for this solution)
+
+Now that we know the posterior distribution, we can draw samples from it by sampling from this distribution.
+
+```{R}
+samples = 10000
+
+### Model 1 (Daniel)
+SIGMA2M1 = 3.0
+posteriorMUM1 = rnorm(samples, m*mean(X)/(SIGMA2M1+m),sqrt(SIGMA2M1/(SIGMA2M1+m)))
+
+
+### Model 2 (Brandon)
+SIGMA2M2 = 2.8
+posteriorMUM2 = rnorm(samples, m*mean(X)/(SIGMA2M2+m),sqrt(SIGMA2M2/(SIGMA2M2+m)))
+```
+
+After obtaining 10,000 samples from the posterior, the data likelihood at each sample can be computed via $p(data|\theta) = p(X|\mu) = Normal(X|\mu_i)$.
+
+```{R}
+mlikeM1 = rep(NA,samples)
+for(i in 1:samples){
+  MUi = posteriorMUM1[i]
+  mlikeM1[i] = prod(dnorm(X,MUi,sqrt(SIGMA2M1)))
+}
+
+mlikeM2 = rep(NA,samples)
+mloglikeM2 = rep(NA,samples)
+for(i in 1:samples){
+  MUi = posteriorMUM1[i]
+  mlikeM2[i] = prod(dnorm(X,MUi,sqrt(SIGMA2M2)))
+}
+```
+
+Then compute the Bayes Factor by taking the ratio of harmonic means of the data likelihoods:
+
+```{R}
+HM(mlikeM1)/HM(mlikeM2)
+```
+
+Oh no! It returned NaN! Something has gone wrong. Let's look at the the first 5 likelihood values from each of our samples:
+
+```{R}
+head(mlikeM1); head(mlikeM2)
+```
+
+All of the values are being reported as 0, but this is not possible as we're multiply a bunch of terms that are all strictly greater than 0 (albeit very small). It looks like we're experiencing an underflow issue. Let's instead compute the log likelihoods and use our computational trick.
+
+```{R}
+mloglikeM1 = rep(NA,samples)
+for(i in 1:samples){
+  MUi = posteriorMUM1[i]
+  mloglikeM1[i] = sum(dnorm(X,MUi,sqrt(SIGMA2M1),log=TRUE))
+}
+
+mloglikeM2 = rep(NA,samples)
+for(i in 1:samples){
+  MUi = posteriorMUM1[i]
+  mloglikeM2[i] = sum(dnorm(X,MUi,sqrt(SIGMA2M2),log=TRUE))
+}
+```
+
+```{R}
+BF12(mloglikeM1,mloglikeM2)
+```
+
+We have successfully avoided the underflow issue and computed the Bayes Factor. Since we created the data, we know the better model was Daniel's as he proposed the true variance, $\sigma^2=3$. If we didn't create the data though, we could have made this conclusion though since the Bayes Factor is greater than 1, indicating $M_1$ is the better fit. Without this computational trick, we would not have been able to solve for the Bayes Factor and reach this conclusion.
+
+## References
+
+[Gelman, A., Carlin, J. B., Stern, H. S., Dunson, D. B., Vehtari, A., and Rubin, D. B. (2014). Bayesian Data Analysis. Chapman & Hall/CRC, third edition.](https://stat.columbia.edu/~gelman/book/)
+
+[Newton, M. A. Raftery, A.E. (1994). Approximate Bayesian Inference with the Weighted Likelihood Bootstrap. Journal of the Royal Statistical Society: Series B (Methodological), 56(1):3-26.](https://www.jstor.org/stable/2346025)
