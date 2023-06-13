@@ -414,7 +414,7 @@ p(data|M_j) = \int p(data|\theta,M_j)p(\theta)d\theta
 <p>You show the following histogram to two of your friends, Daniel and Brandon. We are interested in developing a model where we can predict the mean, <span class="math inline">\(\mu\)</span>, but want a fixed variance, <span class="math inline">\(\sigma^2\)</span>. Daniel (<span class="math inline">\(M_1\)</span>) looks at the histogram and proposes that the variance should be fixed at <span class="math inline">\(\sigma^2=3.0\)</span>. Brandon (<span class="math inline">\(M_2\)</span>), on the other hand, looks at the histogram and thinks the variance is <span class="math inline">\(\sigma^2=2.5\)</span>. Which of your friends has proposed the better model?</p>
 <p>Since the variance, <span class="math inline">\(\sigma^2\)</span> is fixed, we can simply write our posterior as:</p>
 <p><span class="math display">\[
-p(\mu|X,M_j) = \frac{p(X|\mu,M_ij)p(\mu,M_j)}{p(X|M_j)}
+p(\mu|X,M_j) = \frac{p(X|\mu,M_j)p(\mu,M_j)}{p(X|M_j)}
 \]</span> To ensure an easy to compute posterior, we use a normal prior, <span class="math inline">\(p(\mu)=Normal(0,1)\)</span>. This results in a conjugate posterior normal distribution,</p>
 <p><span class="math display">\[
 p(\mu|X,M_j) = Normal\left(\frac{m\bar{X}}{\sigma^2+m},\frac{\sigma^2}{\sigma^2+m}\right)
@@ -432,19 +432,19 @@ p(\mu|X,M_j) = Normal\left(\frac{m\bar{X}}{\sigma^2+m},\frac{\sigma^2}{\sigma^2+
 <span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>SIGMA2M2 <span class="ot">=</span> <span class="fl">2.8</span></span>
 <span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>posteriorMUM2 <span class="ot">=</span> <span class="fu">rnorm</span>(samples, m<span class="sc">*</span><span class="fu">mean</span>(X)<span class="sc">/</span>(SIGMA2M2<span class="sc">+</span>m),<span class="fu">sqrt</span>(SIGMA2M2<span class="sc">/</span>(SIGMA2M2<span class="sc">+</span>m)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>After obtaining 10,000 samples from the posterior, the data likelihood at each sample can be computed via <span class="math inline">\(p(data|\theta) = p(X|\mu) = Normal(X|\mu_i)\)</span>.</p>
+<p>After obtaining 10,000 samples from the posterior, the data likelihood at each sample can be computed via <span class="math inline">\(p(data|\theta) = p(X|\mu) = \prod_{i=1}^m Normal(x_i|\mu)\)</span>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>mlikeM1 <span class="ot">=</span> <span class="fu">rep</span>(<span class="cn">NA</span>,samples)</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>samples){</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  MUi <span class="ot">=</span> posteriorMUM1[i]</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  mlikeM1[i] <span class="ot">=</span> <span class="fu">prod</span>(<span class="fu">dnorm</span>(X,MUi,<span class="fu">sqrt</span>(SIGMA2M1)))</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(samp <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>samples){</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  MUsamp <span class="ot">=</span> posteriorMUM1[samp]</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  mlikeM1[samp] <span class="ot">=</span> <span class="fu">prod</span>(<span class="fu">dnorm</span>(X,MUsamp,<span class="fu">sqrt</span>(SIGMA2M1)))</span>
 <span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>mlikeM2 <span class="ot">=</span> <span class="fu">rep</span>(<span class="cn">NA</span>,samples)</span>
 <span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>mloglikeM2 <span class="ot">=</span> <span class="fu">rep</span>(<span class="cn">NA</span>,samples)</span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>samples){</span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>  MUi <span class="ot">=</span> posteriorMUM1[i]</span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>  mlikeM2[i] <span class="ot">=</span> <span class="fu">prod</span>(<span class="fu">dnorm</span>(X,MUi,<span class="fu">sqrt</span>(SIGMA2M2)))</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(samp <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>samples){</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>  MUsamp <span class="ot">=</span> posteriorMUM1[samp]</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>  mlikeM2[samp] <span class="ot">=</span> <span class="fu">prod</span>(<span class="fu">dnorm</span>(X,MUsamp,<span class="fu">sqrt</span>(SIGMA2M2)))</span>
 <span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then compute the Bayes Factor by taking the ratio of harmonic means of the data likelihoods:</p>
@@ -467,15 +467,15 @@ p(\mu|X,M_j) = Normal\left(\frac{m\bar{X}}{\sigma^2+m},\frac{\sigma^2}{\sigma^2+
 <p>All of the values are being reported as 0, but this is not possible as we’re multiply a bunch of terms that are all strictly greater than 0 (albeit very small). It looks like we’re experiencing an underflow issue. Let’s instead compute the log likelihoods and use our computational trick.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>mloglikeM1 <span class="ot">=</span> <span class="fu">rep</span>(<span class="cn">NA</span>,samples)</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>samples){</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  MUi <span class="ot">=</span> posteriorMUM1[i]</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  mloglikeM1[i] <span class="ot">=</span> <span class="fu">sum</span>(<span class="fu">dnorm</span>(X,MUi,<span class="fu">sqrt</span>(SIGMA2M1),<span class="at">log=</span><span class="cn">TRUE</span>))</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(samp <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>samples){</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  MUsamp <span class="ot">=</span> posteriorMUM1[samp]</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  mloglikeM1[samp] <span class="ot">=</span> <span class="fu">sum</span>(<span class="fu">dnorm</span>(X,MUsamp,<span class="fu">sqrt</span>(SIGMA2M1),<span class="at">log=</span><span class="cn">TRUE</span>))</span>
 <span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>mloglikeM2 <span class="ot">=</span> <span class="fu">rep</span>(<span class="cn">NA</span>,samples)</span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>samples){</span>
-<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>  MUi <span class="ot">=</span> posteriorMUM1[i]</span>
-<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>  mloglikeM2[i] <span class="ot">=</span> <span class="fu">sum</span>(<span class="fu">dnorm</span>(X,MUi,<span class="fu">sqrt</span>(SIGMA2M2),<span class="at">log=</span><span class="cn">TRUE</span>))</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(samp <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>samples){</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>  MUsamp <span class="ot">=</span> posteriorMUM1[samp]</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>  mloglikeM2[samp] <span class="ot">=</span> <span class="fu">sum</span>(<span class="fu">dnorm</span>(X,MUsamp,<span class="fu">sqrt</span>(SIGMA2M2),<span class="at">log=</span><span class="cn">TRUE</span>))</span>
 <span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">

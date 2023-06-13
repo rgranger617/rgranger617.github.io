@@ -260,7 +260,7 @@ SIGMA2M2 = 2.8
 posteriorMUM2 = rnorm(samples, m*mean(X)/(SIGMA2M2+m),sqrt(SIGMA2M2/(SIGMA2M2+m)))
 ```
 
-After obtaining 10,000 samples from the posterior, the data likelihood at each sample can be computed via $p(data|\theta) = p(X|\mu) = Normal(X|\mu_i)$.
+After obtaining 10,000 samples from the posterior, the data likelihood at each sample can be computed via $p(data|\theta) = p(X|\mu) = \prod_{i=1}^m Normal(X|\mu_i)$.
 
 ```{R}
 mlikeM1 = rep(NA,samples)
