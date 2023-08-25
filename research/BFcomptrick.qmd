@@ -311,8 +311,7 @@ BF12(mloglikeM1,mloglikeM2)
 
 We have successfully avoided the underflow issue and computed the Bayes Factor. Since we created the data, we know the better model was Daniel's as he proposed the true variance, $\sigma^2=3$. If we didn't create the data though, we could have made this conclusion though since the Bayes Factor is greater than 1, indicating $M_1$ is the better fit. Without this computational trick, we would not have been able to solve for the Bayes Factor and reach this conclusion.
 
-I make one final note to users of this method.  While we demonstrated the usefulness of this computational trick, we did not show the usefulness of estimating the marginal likelihood via the harmonic mean. It is a very simple technique; however, it tends to be highly unstable and requires a very large sample size. Nevertheless, I have found that for answering the binary question of which model is better, it does quite well; however, the true Bayes factor is typically considerably off from the value obtained via this procedure.
-
+I make one final note to users of this method. While we demonstrated the usefulness of this computational trick, we did not show the usefulness of estimating the marginal likelihood via the harmonic mean. It is a very simple technique; however, it tends to be highly unstable and requires a very large sample size. Nevertheless, I have found that for answering the binary question of which model is better, it does quite well; however, the true Bayes factor is typically considerably off from the value obtained via this procedure.
 
 ## References
 
