@@ -16,6 +16,8 @@ website:
         text: Research
       - href: teaching/teaching.qmd
         text: Teaching
+      - href: information/information.qmd
+        text: Information
       - href: apps/apps.qmd
         text: Apps
   page-footer:
