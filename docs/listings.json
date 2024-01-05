@@ -1,13 +1,8 @@
 [
   {
-    "listing": "/apps/apps.html",
-    "items": [
-      "/apps/apps/hypothesistesting/hypothesistesting.html"
-    ]
-  },
-  {
     "listing": "/teaching/teaching.html",
     "items": [
+      "/teaching/courses/IU-STAT-S301/S301-Spring2024.html",
       "/teaching/courses/IU-STAT-S301/S301-Fall2023.html",
       "/teaching/courses/IU-STAT-S301/S301-Spring2023.html",
       "/teaching/courses/IU-STAT-S301/S301-Fall2022.html",
@@ -24,6 +19,12 @@
       "/teaching/courses/Ivy-ECON-E201/E201-Fall2017.html",
       "/teaching/courses/Ivy-ECON-E201/E201-Summer2017.html",
       "/teaching/courses/Ivy-ECON-E202/E202-Spring2017.html"
+    ]
+  },
+  {
+    "listing": "/apps/apps.html",
+    "items": [
+      "/apps/apps/hypothesistesting/hypothesistesting.html"
     ]
   }
 ]
