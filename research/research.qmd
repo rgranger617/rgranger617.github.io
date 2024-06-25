@@ -4,13 +4,15 @@ title: "Research"
 
 Capture-Recapture (Multiple Systems Estimation)
 
--   Exploring the capture-recapture problem with observed and unobserved heterogeneity.
+-   Bayesian Logistic Regression Capture-Recapture Model
 
 -   Bayesian, MCMC, data imputation
 
 -   This research is taking place under the guidance of [Professor Daniel Manrique-Vallier](https://dmanriqu.pages.iu.edu/).
 
 -   Proposal Defense: Successful
+
+-   [BLRCR package](https://github.com/rgranger617/BLRCR)
 
 -   Dissertation Defense: **Expected August 2024**
 
