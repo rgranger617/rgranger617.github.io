@@ -12,7 +12,11 @@ listing:
     page-size: 5
 ---
 
-Listed below are links to course pages for every class that I've taught. Each page contains the official course description along with the course syllabus. If you'd like additional information or course materials, feel free to contact me.
+Listed below are links to course pages for every class that I've taught. Each page contains the official course description along with the course syllabus. If you'd like additional information or course materials,
+
+<iframe width="402" height="346" frameborder="0" scrolling="no" src="https://indiana-my.sharepoint.com/personal/rgranger_iu_edu/_layouts/15/Doc.aspx?sourcedoc={b4d0216c-460c-415e-8b0a-862dc44d33ee}&action=embedview&wdAllowInteractivity=False&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True"></iframe>
+
+feel free to contact me.
 
 ::: {#courses}
 :::
