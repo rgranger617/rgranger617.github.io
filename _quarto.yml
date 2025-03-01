@@ -23,7 +23,7 @@ website:
   page-footer:
     background: "#990000"
     border: true
-    right: "© 2022, Robert E. Granger"
+    right: "© 2025, Robert E. Granger"
     center:
       <a href="mailto:rgranger@iu.edu"><i class="bi bi-envelope"></i></a>
       <a href="https://www.linkedin.com/in/rgranger617"><i class="bi bi-linkedin"></i></a>
