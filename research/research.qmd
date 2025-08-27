@@ -2,19 +2,15 @@
 title: "Research"
 ---
 
-Capture-Recapture (Multiple Systems Estimation)
+Capture-Recapture with Covariates
 
--   Bayesian Logistic Regression Capture-Recapture Model
-
--   Bayesian, MCMC, data imputation
+-   Bayesian Logistic Regression Capture-Recapture Model with Extensions
 
 -   This research is taking place under the guidance of [Professor Daniel Manrique-Vallier](https://dmanriqu.pages.iu.edu/).
 
--   Proposal Defense: Successful
-
 -   [BLRCR package](https://github.com/rgranger617/BLRCR)
 
--   Dissertation Defense: **Expected August 2024**
+-   Dissertation Defense: August 22, 2025.
 
 Switching State Space Models for Interpreting Musical Dynamics
 
