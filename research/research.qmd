@@ -4,13 +4,13 @@ title: "Research"
 
 Capture-Recapture with Covariates
 
--   Bayesian Logistic Regression Capture-Recapture Model with Extensions
+-   [Bayesian Logistic Regression Capture-Recapture Model with Extensions](https://www.proquest.com/docview/3256801973)
 
--   This research is taking place under the guidance of [Professor Daniel Manrique-Vallier](https://dmanriqu.pages.iu.edu/).
+-   This research took place under the guidance of [Professor Daniel Manrique-Vallier](https://dmanriqu.pages.iu.edu/).
 
 -   [BLRCR package](https://github.com/rgranger617/BLRCR)
 
--   Dissertation Defense: August 22, 2025.
+-   Dissertation Defended (August 22, 2025).
 
 Switching State Space Models for Interpreting Musical Dynamics
 
