@@ -82,20 +82,18 @@ print(paste("Harmonic Mean is equal to", HM(exp(logY))))
 
 as we must first take the exponential of the natural log values before adding them together. This in turn would return -infinity for our value of the natural log of the harmonic mean. So... how do we get around this? We begin by writing down the equation for the harmonic mean in terms of the $\log(y_i)$:
 
-```{=tex}
 \begin{align}
 HM(\boldsymbol{Y}) & = \frac{n}{\frac{1}{\exp(\log(y_1))} + \frac{1}{\exp(\log(y_2))} + ... + \frac{1}{\exp(\log(y_n))}} \\
 & = \frac{n}{\exp(-\log(y_1)) + \exp(-\log(y_2)) + ... + \exp(-\log(y_n))} \\
 & = \left(\frac{n}{\exp(c-\log(y_1)) + \exp(c-\log(y_2)) + ... + \exp(c-\log(y_n))}\right)\exp(c) \\
 \end{align}
-```
+
 Now, let's take the natural log of both sides:
 
-```{=tex}
 \begin{align}
 \log\Big(HM(\boldsymbol{Y})\Big) & = \log(n) + \log(c) - \log\Big(\exp(c-\log(y_1)) + \exp(c-\log(y_2)) + ... + \exp(c-\log(y_n))\Big) \\
 \end{align}
-```
+
 The equation above no longer requires taking the exponential of $y_i$ but instead the exponential of $c-y_i$ where $c$ is any arbitrary constant. We want to select a $c$ such that we minimize the potential for underflow errors. In this case, the obvious choice is to select $c=\max(\log(\boldsymbol{Y}))$. I code up the function below and compare it with our $\boldsymbol{X}$ data:
 
 ```{R}

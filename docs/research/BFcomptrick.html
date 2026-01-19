@@ -320,15 +320,15 @@ GM(x_1, x_2, ..., x_n) = \sqrt[N]{x_1 \times x_2 \times ... \times x_n}
 </div>
 </div>
 <p>as we must first take the exponential of the natural log values before adding them together. This in turn would return -infinity for our value of the natural log of the harmonic mean. So… how do we get around this? We begin by writing down the equation for the harmonic mean in terms of the <span class="math inline">\(\log(y_i)\)</span>:</p>
-<span class="math display">\[\begin{align}
+<p><span class="math display">\[\begin{align}
 HM(\boldsymbol{Y}) &amp; = \frac{n}{\frac{1}{\exp(\log(y_1))} + \frac{1}{\exp(\log(y_2))} + ... + \frac{1}{\exp(\log(y_n))}} \\
 &amp; = \frac{n}{\exp(-\log(y_1)) + \exp(-\log(y_2)) + ... + \exp(-\log(y_n))} \\
 &amp; = \left(\frac{n}{\exp(c-\log(y_1)) + \exp(c-\log(y_2)) + ... + \exp(c-\log(y_n))}\right)\exp(c) \\
-\end{align}\]</span>
+\end{align}\]</span></p>
 <p>Now, let’s take the natural log of both sides:</p>
-<span class="math display">\[\begin{align}
+<p><span class="math display">\[\begin{align}
 \log\Big(HM(\boldsymbol{Y})\Big) &amp; = \log(n) + \log(c) - \log\Big(\exp(c-\log(y_1)) + \exp(c-\log(y_2)) + ... + \exp(c-\log(y_n))\Big) \\
-\end{align}\]</span>
+\end{align}\]</span></p>
 <p>The equation above no longer requires taking the exponential of <span class="math inline">\(y_i\)</span> but instead the exponential of <span class="math inline">\(c-y_i\)</span> where <span class="math inline">\(c\)</span> is any arbitrary constant. We want to select a <span class="math inline">\(c\)</span> such that we minimize the potential for underflow errors. In this case, the obvious choice is to select <span class="math inline">\(c=\max(\log(\boldsymbol{Y}))\)</span>. I code up the function below and compare it with our <span class="math inline">\(\boldsymbol{X}\)</span> data:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>logHM <span class="ot">&lt;-</span> <span class="cf">function</span>(logdata){</span>

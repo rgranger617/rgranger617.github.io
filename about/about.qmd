@@ -2,7 +2,7 @@
 title: "Robert Granger"
 about:
   template: trestles
-  image: RobTheoswimming.jpg
+  image: grangerfamilychristmascard2025.jpg
   links:
     - icon: mailbox
       text: Email
@@ -24,7 +24,7 @@ In 2012, Rob earned his Bachelor's degree from Indiana University with majors in
 
 Rob was hired in 2024 as the Director of Business Statistics and Lecturer in the Department of Statistics at Indiana University. His primary duty is overseeing the course of *STAT-S301: Applied Statistical Methods for Business*, a required course for Kelley Business School majors, for which roughly \~2000 students take per year. In addition, he regularly teaches up to three large sections of STAT-S301 per semester.
 
-In his spare time, Rob enjoys spending time with his wife, Mary, his 4 year old son, Theodore, and his 5-month old daughter, Amelia.
+In his spare time, Rob enjoys spending time with his wife, Mary, his 5-year old son, Theodore, and his 9-month old daughter, Amelia.
 
 ## Education
 
@@ -48,7 +48,7 @@ Director of Business Statistics and Lecturer \| Indiana University\
 Bloomington, IN \| August 2024 - present
 
 Visiting Lecturer \| Indiana University\
-Bloomington, IN \| August 2022 - present
+Bloomington, IN \| August 2022 - July 2024
 
 Associate Instructor \| Indiana University\
 Bloomington, IN \| August 2017 - July 2021
