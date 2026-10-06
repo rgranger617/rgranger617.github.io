@@ -2,7 +2,7 @@
 title: "Hypothesis Testing Calculator"
 subtitle: "Testing of a Single Mean"
 date: May 2016
-categories: ["Hypothesis Testing"]
+categories: ["Statistics"]
 format: html
 ---
 

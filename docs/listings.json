@@ -32,6 +32,7 @@
   {
     "listing": "/apps/apps.html",
     "items": [
+      "/apps/apps/montyhall/monty-hall.html",
       "/apps/apps/hypothesistesting/hypothesistesting.html"
     ]
   }

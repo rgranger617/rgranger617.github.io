@@ -1,0 +1,87 @@
+---
+title: "The Monty Hall Problem"
+subtitle: "An Interactive Probability Game"
+description: "&nbsp;"
+date: October 2026
+categories: ["Educational"]
+format:
+  html:
+    page-layout: full
+    toc: false
+    css: monty-hall.css
+    include-after-body: monty-hall-script.html
+---
+
+```{=html}
+<div class="monty-wrap">
+<div id="monty-game" class="monty-game" aria-live="polite">
+  <div class="monty-header">
+    <div class="top-controls">
+      <div class="mode-switcher" role="group" aria-label="Choose game size">
+        <button id="mode-3" class="mode-button" type="button" data-doors="3">3 Doors</button>
+        <button id="mode-50" class="mode-button active" type="button" data-doors="50">50 Doors</button>
+      </div>
+
+      <details class="settings-menu" id="settings-menu">
+        <summary aria-label="Game settings">Settings &#9881;</summary>
+        <div class="settings-panel">
+          <label class="setting-row" for="door-scale">
+            <span><strong>Door size</strong><small id="door-scale-label">115%</small></span>
+            <input id="door-scale" type="range" min="60" max="175" value="115" step="5">
+          </label>
+
+          <fieldset class="setting-group">
+            <legend>50-door grid</legend>
+            <div class="setting-buttons">
+              <button type="button" class="setting-button active" data-layout="10x5">10 across x 5 down</button>
+              <button type="button" class="setting-button" data-layout="5x10">5 across x 10 down</button>
+            </div>
+          </fieldset>
+
+          <label class="setting-row" for="prize-theme">
+            <span><strong>Behind the doors</strong></span>
+            <select id="prize-theme">
+              <option value="trophy">Empty doors / trophy</option>
+              <option value="car">Goats & silly things / convertible</option>
+              <option value="purdue">Purdue animals (videos) / IU championship trophy</option>
+              <option value="purdueStill">Purdue animals (still images) / IU championship trophy</option>
+            </select>
+          </label>
+        </div>
+      </details>
+    </div>
+
+    <p id="monty-instruction" class="monty-instruction">A prize is hidden behind one of 50 doors. Pick a door!</p>
+  </div>
+
+  <div id="monty-stage" class="monty-stage">
+    <div id="door-grid" class="door-grid" aria-label="50 doors"></div>
+
+    <div id="decision-panel" class="decision-panel" hidden>
+      <p id="decision-text" class="decision-text"></p>
+      <div class="decision-buttons">
+        <button id="stay-button" class="choice-button stay-button" type="button"></button>
+        <button id="switch-button" class="choice-button switch-button" type="button"></button>
+      </div>
+    </div>
+
+    <div id="result-panel" class="result-panel" hidden>
+      <div id="result-icon" class="result-icon" aria-hidden="true"></div>
+      <h2 id="result-title"></h2>
+      <p id="result-text"></p>
+      <p id="lesson-text" class="lesson-text"></p>
+      <button id="play-again" class="play-again" type="button">Play again</button>
+    </div>
+  </div>
+
+  <div class="score-heading">Statistics for <strong id="score-mode-label">50 doors</strong></div>
+  <div class="scoreboard" aria-label="Game statistics">
+    <div class="score-card"><span class="score-label">Games</span><strong id="games-played">0</strong></div>
+    <div class="score-card"><span class="score-label">Stayed</span><strong id="stay-record">0 / 0 wins</strong><span id="stay-rate" class="score-rate">—</span></div>
+    <div class="score-card"><span class="score-label">Switched</span><strong id="switch-record">0 / 0 wins</strong><span id="switch-rate" class="score-rate">—</span></div>
+  </div>
+
+
+</div>
+</div>
+```
