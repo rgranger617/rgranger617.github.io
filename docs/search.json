@@ -284,7 +284,7 @@
     "href": "apps/apps.html",
     "title": "Apps",
     "section": "",
-    "text": "Listed below are applications that I’ve created.\n\n\n\n\n\n\n\n\n\n\nHypothesis Testing Calculator\n\n\nTesting of a Single Mean\n\n\n\nHypothesis Testing\n\n\n\n\n\n\n\n\n\nMay 1, 2016\n\n\n\n\n\nNo matching items"
+    "text": "Listed below are applications that I’ve created.\n\n\n\n\n\n\n\n\n\n\nThe Monty Hall Problem\n\n\nAn Interactive Probability Game\n\n\n\nEducational\n\n\n\n \n\n\n\n\n\nOct 1, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nHypothesis Testing Calculator\n\n\nTesting of a Single Mean\n\n\n\nStatistics\n\n\n\n\n\n\n\n\n\nMay 1, 2016\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about/about.html",
@@ -313,6 +313,13 @@
     "title": "Robert Granger",
     "section": "Technical Skills and Certifications",
     "text": "Technical Skills and Certifications\nData Science Certificate | Johns Hopkins University\nFall 2015 - Spring 2016\nProgramming Languages and Software\nR, Python, C/C++, Stata, Latex, Excel"
+  },
+  {
+    "objectID": "apps/apps/montyhall/monty-hall.html",
+    "href": "apps/apps/montyhall/monty-hall.html",
+    "title": "The Monty Hall Problem",
+    "section": "",
+    "text": "3 Doors\n        50 Doors\n      \n\n      \n        Settings ⚙\n        \n          \n            Door size115%\n            \n          \n\n          \n            50-door grid\n            \n              10 across x 5 down\n              5 across x 10 down\n            \n          \n\n          \n            Behind the doors\n            \n              Empty doors / trophy\n              Goats & silly things / convertible\n              Purdue animals (videos) / IU championship trophy\n              Purdue animals (still images) / IU championship trophy\n            \n          \n        \n      \n    \n\n    A prize is hidden behind one of 50 doors. Pick a door!\n  \n\n  \n    \n\n    \n      \n      \n        \n        \n      \n    \n\n    \n      \n      \n      \n      \n      Play again\n    \n  \n\n  Statistics for 50 doors\n  \n    Games0\n    Stayed0 / 0 wins—\n    Switched0 / 0 wins—"
   },
   {
     "objectID": "index.html",

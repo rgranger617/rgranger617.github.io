@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2026-10-01">
+<meta name="description" content="&nbsp;">
 
-<title>Apps – Robert Granger</title>
+<title>The Monty Hall Problem – Robert Granger</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,25 +28,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5b1ca72a8ff8f38099582db7d038e540.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-5b1ca72a8ff8f38099582db7d038e540.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,67 +72,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-courses .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-courses'] = new List('listing-courses', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="monty-hall.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -142,33 +85,33 @@ window.Quarto = {
     <nav class="navbar navbar-expand " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Robert Granger</span>
     </a>
   </div>
           <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about/about.html"> 
+    <a class="nav-link" href="../../../about/about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../research/research.html"> 
+    <a class="nav-link" href="../../../research/research.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../teaching/teaching.html"> 
+    <a class="nav-link" href="../../../teaching/teaching.html"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../information/information.html"> 
+    <a class="nav-link" href="../../../information/information.html"> 
 <span class="menu-text">Information</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../apps/apps.html" aria-current="page"> 
+    <a class="nav-link" href="../../../apps/apps.html"> 
 <span class="menu-text">Apps</span></a>
   </li>  
 </ul>
@@ -179,25 +122,38 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RWR1Y2F0aW9uYWw=">Educational <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3RhdGlzdGljcw==">Statistics <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Apps</h1>
+<h1 class="title">The Monty Hall Problem</h1>
+<p class="subtitle lead">An Interactive Probability Game</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Educational</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    &nbsp;
+  </div>
 </div>
 
 
-
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 1, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -207,78 +163,83 @@ window.Quarto = {
 </header>
 
 
-<p>Listed below are applications that I’ve created.</p>
-<div id="listing-courses" class="quarto-listing quarto-listing-container-default">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="RWR1Y2F0aW9uYWw=" data-listing-date-sort="1790827200000" data-listing-file-modified-sort="1791264339375" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="587">
-<div class="thumbnail"><a href="../apps/apps/montyhall/monty-hall.html" class="no-external">
+<div class="monty-wrap">
+<div id="monty-game" class="monty-game" aria-live="polite">
+  <div class="monty-header">
+    <div class="top-controls">
+      <div class="mode-switcher" role="group" aria-label="Choose game size">
+        <button id="mode-3" class="mode-button" type="button" data-doors="3">3 Doors</button>
+        <button id="mode-50" class="mode-button active" type="button" data-doors="50">50 Doors</button>
+      </div>
 
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+      <details class="settings-menu" id="settings-menu">
+        <summary aria-label="Game settings">Settings ⚙</summary>
+        <div class="settings-panel">
+          <label class="setting-row" for="door-scale">
+            <span><strong>Door size</strong><small id="door-scale-label">115%</small></span>
+            <input id="door-scale" type="range" min="60" max="175" value="115" step="5">
+          </label>
 
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../apps/apps/montyhall/monty-hall.html" class="no-external">The Monty Hall Problem</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../apps/apps/montyhall/monty-hall.html" class="no-external">An Interactive Probability Game</a>
-</div>
-<div class="listing-categories">
+          <fieldset class="setting-group">
+            <legend>50-door grid</legend>
+            <div class="setting-buttons">
+              <button type="button" class="setting-button active" data-layout="10x5">10 across x 5 down</button>
+              <button type="button" class="setting-button" data-layout="5x10">5 across x 10 down</button>
+            </div>
+          </fieldset>
 
-<div class="listing-category" onclick="window.quartoListingCategory('RWR1Y2F0aW9uYWw='); return false;">Educational</div>
+          <label class="setting-row" for="prize-theme">
+            <span><strong>Behind the doors</strong></span>
+            <select id="prize-theme">
+              <option value="trophy">Empty doors / trophy</option>
+              <option value="car">Goats &amp; silly things / convertible</option>
+              <option value="purdue">Purdue animals (videos) / IU championship trophy</option>
+              <option value="purdueStill">Purdue animals (still images) / IU championship trophy</option>
+            </select>
+          </label>
+        </div>
+      </details>
+    </div>
+
+    <p id="monty-instruction" class="monty-instruction">A prize is hidden behind one of 50 doors. Pick a door!</p>
+  </div>
+
+  <div id="monty-stage" class="monty-stage">
+    <div id="door-grid" class="door-grid" aria-label="50 doors"></div>
+
+    <div id="decision-panel" class="decision-panel" hidden="">
+      <p id="decision-text" class="decision-text"></p>
+      <div class="decision-buttons">
+        <button id="stay-button" class="choice-button stay-button" type="button"></button>
+        <button id="switch-button" class="choice-button switch-button" type="button"></button>
+      </div>
+    </div>
+
+    <div id="result-panel" class="result-panel" hidden="">
+      <div id="result-icon" class="result-icon" aria-hidden="true"></div>
+      <h2 id="result-title" class="anchored"></h2>
+      <p id="result-text"></p>
+      <p id="lesson-text" class="lesson-text"></p>
+      <button id="play-again" class="play-again" type="button">Play again</button>
+    </div>
+  </div>
+
+  <div class="score-heading">Statistics for <strong id="score-mode-label">50 doors</strong></div>
+  <div class="scoreboard" aria-label="Game statistics">
+    <div class="score-card"><span class="score-label">Games</span><strong id="games-played">0</strong></div>
+    <div class="score-card"><span class="score-label">Stayed</span><strong id="stay-record">0 / 0 wins</strong><span id="stay-rate" class="score-rate">—</span></div>
+    <div class="score-card"><span class="score-label">Switched</span><strong id="switch-record">0 / 0 wins</strong><span id="switch-rate" class="score-rate">—</span></div>
+  </div>
+
 
 </div>
-<div class="delink listing-description"><a href="../apps/apps/montyhall/monty-hall.html" class="no-external">
-<p>&nbsp;</p>
-</a></div>
 </div>
-<div class="metadata">
-<a href="../apps/apps/montyhall/monty-hall.html" class="no-external">
-<div class="listing-date">
-Oct 1, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="U3RhdGlzdGljcw==" data-listing-date-sort="1462075200000" data-listing-file-modified-sort="1791263886405" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="10">
-<div class="thumbnail"><a href="../apps/apps/hypothesistesting/hypothesistesting.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../apps/apps/hypothesistesting/hypothesistesting.html" class="no-external">Hypothesis Testing Calculator</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../apps/apps/hypothesistesting/hypothesistesting.html" class="no-external">Testing of a Single Mean</a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGlzdGljcw=='); return false;">Statistics</div>
-
-</div>
-<div class="delink listing-description"><a href="../apps/apps/hypothesistesting/hypothesistesting.html" class="no-external">
-
-
-</a></div>
-</div>
-<div class="metadata">
-<a href="../apps/apps/hypothesistesting/hypothesistesting.html" class="no-external">
-<div class="listing-date">
-May 1, 2016
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-
 
 
 
 </main> <!-- /main -->
+<script src="purdue-media.js"></script>
+<script src="monty-hall.js"></script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
